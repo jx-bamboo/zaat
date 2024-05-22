@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="154px" viewBox="0 0 154 154" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>登录</title>
+    <defs>
+        <linearGradient x1="40.0115273%" y1="41.83573%" x2="64.7280677%" y2="58.16427%" id="linearGradient-1">
+            <stop stop-color="#FA1AFF" offset="0%"></stop>
+            <stop stop-color="#0D50FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="32.076163%" y1="41.835703%" x2="100%" y2="55.0843321%" id="linearGradient-2">
+            <stop stop-color="#FA1AFF" offset="0%"></stop>
+            <stop stop-color="#0D50FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="81.137599%" x2="100%" y2="81.137599%" id="linearGradient-3">
+            <stop stop-color="#FA1AFF" offset="0%"></stop>
+            <stop stop-color="#0D50FE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Earn-未连钱包" transform="translate(-874.000000, -318.000000)">
+            <g id="登录" transform="translate(876.000000, 320.000000)">
+                <g id="编组-10备份-2" transform="translate(24.000000, 17.164193)">
+                    <path d="M22.2866081,44.6745914 L22.2866081,44.6745914 L22.2866081,44.6745914 L67.9058067,44.5912009 L64.7069175,58.4517999 L99.6844094,20.7821079 L34.9780122,20.900389 C26.5338252,20.9158247 19.7009723,27.7737038 19.7164079,36.2178908 C19.721911,39.2283506 20.6160101,42.170195 22.2866081,44.6745914 Z" id="路径-6备份-3" fill="url(#linearGradient-1)" transform="translate(53.073412, 39.616954) rotate(30.000000) translate(-53.073412, -39.616954) "></path>
+                    <path d="M18.996783,81.1123095 L18.996783,81.1123095 L18.996783,81.1123095 L64.6159816,81.028919 L61.4170924,94.889518 L96.3945844,57.219826 L31.6882559,57.3381072 C23.2440486,57.353543 16.4111792,64.2114386 16.4266149,72.6556459 C16.4321179,75.6660895 17.3262054,78.6079191 18.996783,81.1123095 Z" id="路径-6备份-4" fill="url(#linearGradient-2)" transform="translate(49.783664, 76.054672) scale(-1, -1) rotate(30.000000) translate(-49.783664, -76.054672) "></path>
+                </g>
+                <path d="M75,150 C116.421356,150 150,116.421356 150,75 C150,33.5786438 116.421356,0 75,0 C33.5786438,0 0,33.5786438 0,75 C0,116.421356 33.5786438,150 75,150 Z" id="椭圆形" stroke="url(#linearGradient-3)" stroke-width="3.42857143" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6.857142857142857"></path>
+            </g>
+        </g>
+    </g>
+</svg>

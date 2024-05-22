@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="765px" height="454px" viewBox="0 0 765 454" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> </title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="671" height="360" rx="4"></rect>
+        <filter x="-10.5%" y="-19.0%" width="121.0%" height="139.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="3.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.0509803922   0 0 0 0 0.31372549   0 0 0 0 0.996078431  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-profile-earn-history-弹窗" transform="translate(-578.000000, -313.000000)">
+            <g id="编组-2" transform="translate(625.000000, 308.000000)">
+                <g id="编组-13" transform="translate(0.000000, 50.000000)">
+                    <g id="矩形备份-12">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#222427" stroke-width="1" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <rect id="矩形" fill="#141519" x="0" y="0" width="671" height="60" rx="4"></rect>
+                    <text id="Time" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="43" y="36">Time</tspan>
+                    </text>
+                    <g id="编组-12" transform="translate(43.000000, 78.000000)" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                        <text id="15:19:19" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="0" y="17">15:19:19</tspan>
+                        </text>
+                        <text id="12" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="219" y="17">12</tspan>
+                        </text>
+                        <text id="1,000" fill="#FFD06A">
+                            <tspan x="488" y="17">1,000</tspan>
+                        </text>
+                    </g>
+                    <g id="编组-12备份-2" transform="translate(43.000000, 199.000000)" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                        <text id="15:19:19" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="0" y="17">15:19:19</tspan>
+                        </text>
+                        <text id="12" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="219" y="17">12</tspan>
+                        </text>
+                        <text id="1,000" fill="#FFD06A">
+                            <tspan x="488" y="17">1,000</tspan>
+                        </text>
+                    </g>
+                    <g id="编组-12备份-4" transform="translate(43.000000, 319.000000)" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                        <text id="15:19:19" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="0" y="17">15:19:19</tspan>
+                        </text>
+                        <text id="12" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="219" y="17">12</tspan>
+                        </text>
+                        <text id="1,000" fill="#FFD06A">
+                            <tspan x="488" y="17">1,000</tspan>
+                        </text>
+                    </g>
+                    <g id="编组-12备份" transform="translate(43.000000, 139.000000)" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                        <text id="15:19:19" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="0" y="17">15:19:19</tspan>
+                        </text>
+                        <text id="12" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="219" y="17">12</tspan>
+                        </text>
+                        <text id="1,000" fill="#FFD06A">
+                            <tspan x="488" y="17">1,000</tspan>
+                        </text>
+                    </g>
+                    <g id="编组-12备份-3" transform="translate(43.000000, 259.000000)" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                        <text id="15:19:19" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="0" y="17">15:19:19</tspan>
+                        </text>
+                        <text id="12" fill="#FFFFFF" fill-opacity="0.8">
+                            <tspan x="219" y="17">12</tspan>
+                        </text>
+                        <text id="1,000" fill="#FFD06A">
+                            <tspan x="488" y="17">1,000</tspan>
+                        </text>
+                    </g>
+                    <text id="Quantity" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="262" y="36">Quantity</tspan>
+                    </text>
+                    <text id="xToken" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="531" y="36">xToken</tspan>
+                    </text>
+                    <line x1="0.55" y1="120" x2="670.45" y2="120" id="路径-75备份-2" stroke="#222427"></line>
+                    <line x1="0.55" y1="180" x2="670.45" y2="180" id="路径-75备份-3" stroke="#222427"></line>
+                    <line x1="0.55" y1="240" x2="670.45" y2="240" id="路径-75备份-4" stroke="#222427"></line>
+                    <line x1="0.55" y1="300" x2="670.45" y2="300" id="路径-75备份-5" stroke="#222427"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="22px" viewBox="0 0 50 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <defs>
+        <linearGradient x1="40.0115273%" y1="41.8383118%" x2="64.7280677%" y2="58.1616882%" id="linearGradient-1">
+            <stop stop-color="#FA1AFF" offset="0%"></stop>
+            <stop stop-color="#0D50FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="32.076163%" y1="41.8383118%" x2="100%" y2="55.0827075%" id="linearGradient-2">
+            <stop stop-color="#FA1AFF" offset="0%"></stop>
+            <stop stop-color="#0D50FE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home未登录" transform="translate(-350.000000, -32.000000)">
+            <g id="logo" transform="translate(350.070648, 32.964627)">
+                <g id="编组-10备份">
+                    <path d="M3.87255158,7.75967256 L3.87255158,7.75967256 L3.87255158,7.75967256 L11.7900505,7.73966279 L11.2331781,10.1436963 L17.3083158,3.60692886 L6.07213772,3.63532588 C4.60732002,3.63902789 3.42285172,4.82949833 3.42655373,6.29431603 C3.42787218,6.81600073 3.58300865,7.32571225 3.87255158,7.75967256 Z" id="路径-6备份-3" fill="url(#linearGradient-1)" transform="translate(9.218697, 6.875313) rotate(30.000000) translate(-9.218697, -6.875313) "></path>
+                    <path d="M3.2938613,14.0798314 L3.2938613,14.0798314 L3.2938613,14.0798314 L11.2113603,14.0598217 L10.6544878,16.4638552 L16.7296255,9.92708772 L5.49344743,9.95548474 C4.02862973,9.95918675 2.84416144,11.1496572 2.84786345,12.6144749 C2.84918189,13.1361596 3.00431836,13.6458711 3.2938613,14.0798314 Z" id="路径-6备份-4" fill="url(#linearGradient-2)" transform="translate(8.640007, 13.195471) scale(-1, -1) rotate(30.000000) translate(-8.640007, -13.195471) "></path>
+                </g>
+                <g id="编组" transform="translate(20.929352, 1.035373)" fill="#FFFFFF" fill-rule="nonzero" font-family="Helvetica-Bold, Helvetica" font-size="14" font-weight="bold">
+                    <text id="Zaat">
+                        <tspan x="0" y="14">Zaat</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

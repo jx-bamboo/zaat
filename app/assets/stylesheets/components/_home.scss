@@ -1,0 +1,19 @@
+// body, .home {
+//     background-image: url("bg_home.png");
+//     background-size: cover; /* 图片覆盖整个元素 */
+//     background-position: center; /* 图片居中显示 */
+//     background-repeat: no-repeat; /* 图片不重复 */
+//     background-color: #000;
+//   }
+  
+  .home_content {
+    // width: 535px;
+    // height: 53px;
+    font-family: Arial;
+    font-weight: 400;
+    color: #FFFFFF;
+    // line-height: 30px;
+    text-stroke: 2px #1D85FD;
+    -webkit-text-stroke: 2px #1D85FD;
+    // text-shadow:2px 2px #FF0000;
+  }
