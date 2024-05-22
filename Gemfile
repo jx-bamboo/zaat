@@ -73,3 +73,5 @@ end
 
 gem "sass-rails"
 gem "bootstrap"
+gem "postgresql"
+gem "pg"
