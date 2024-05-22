@@ -4,6 +4,7 @@ lock "~> 3.18.1"
 
 set :application, "zaat"
 set :repo_url, "git@github.com:jx-bamboo/zaat.git"
+set :branch, "main"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
