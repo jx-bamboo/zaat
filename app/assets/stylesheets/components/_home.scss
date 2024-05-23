@@ -25,3 +25,46 @@
   .text_shadow_earn {
     text-shadow: 0 2px 10px #FA1AFF;
   }
+
+    .btn_shadow_create {
+      box-shadow: 0px 0px 20px -5px #0D50FE;
+    
+
+  }
+
+  .btn_shadow_earn {
+      box-shadow: 0px 0px 20px -5px #FA1AFF;
+    
+  }
+
+  // .btn_shadow_create {
+  //   transition: box-shadow 0.3s;
+  //   &:hover {
+  //     box-shadow: 0px 0px 20px 10px #0D50FE;
+  //   }
+
+  //   * {
+  //     pointer-events: none;
+  //   }
+
+  //   &:hover * {
+  //     pointer-events: auto;
+  //   }
+
+  // }
+
+  // .btn_shadow_earn {
+  //   transition: box-shadow 0.3s;
+  //   &:hover {
+  //     box-shadow: 0px 0px 20px 10px #FA1AFF;
+  //   }
+
+  //   * {
+  //     pointer-events: none;
+  //   }
+
+  //   &:hover * {
+  //     pointer-events: auto;
+  //   }
+
+  // }
