@@ -8,6 +8,16 @@ body {
   background-color: #000;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+@-moz-document url-prefix() {
+  html, body {
+    scrollbar-width: none;
+  }
+}
+
 .cred {
   border: 0.1px solid red;
 }
