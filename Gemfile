@@ -73,5 +73,6 @@ end
 
 gem "sass-rails"
 gem "bootstrap"
+gem "bootstrap-icons-helper"
 gem "postgresql"
 gem "pg"

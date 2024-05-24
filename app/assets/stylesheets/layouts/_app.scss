@@ -33,3 +33,28 @@ body {
 .fs0875{
   font-size: 0.875rem;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-copy {
+  cursor: copy;
+}
+
+.blur-div-background {
+  backdrop-filter: blur(10px);
+  // filter: blur(5px);
+}
+
+.padding1 {
+  padding: 1px;
+}
+
+.w-45 {
+  width: 45% !important;
+}
+
+.top-30 {
+  top: 30% !important;
+}

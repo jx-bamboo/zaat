@@ -6,3 +6,42 @@
   padding: 1px;
   text-align: center;
 }
+
+.mouse-cursor-gradient-tracking {
+  position: relative;
+  /* background-image: linear-gradient(90deg, #FA1AFF 0%, #0D50FE 100%); */
+  /* padding: 0.5rem 1rem; */
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+
+.mouse-cursor-gradient-tracking span {
+  position: relative;
+}
+
+.mouse-cursor-gradient-tracking::before {
+  --size: 0;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, pink, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.mouse-cursor-gradient-tracking:hover::before {
+  --size: 100px;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ff0000, #00ff00); /* 定义渐变背景，从红色到绿色 */
+    -webkit-background-clip: text; /* 使用 WebKit 的 background-clip 属性将背景仅渲染在文本上 */
+    background-clip: text; /* background-clip 属性将背景仅渲染在文本上 (标准属性) */
+    /* color: transparent; 隐藏实际文本颜色 */
+}

@@ -16,12 +16,12 @@
           <span class="p-0 m-0">Log in</span>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-light">
-              <div class="modal-header">
+        <div class="modal fade blur-div-background" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered px-4">
+            <div class="modal-content text-light">
+              <!-- <div class="modal-header position-relative">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Title</h1>
-                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close text-light bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 Test content
@@ -29,6 +29,42 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save</button>
+              </div> -->
+              <!-- <button type="button" class="btn-close text-light bg-light position-absolute top-0 start-100 translate-middle ms-3" data-bs-dismiss="modal" aria-label="Close"></button> -->
+              <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
+                <%= image_tag "close.svg", class: "position-absolute top-0 start-100 translate-middle" %>
+              </div>
+              <div class="position-relative">
+                
+                <div class="text-center login_div py-5 px-2 px-sm-3 px-md-4 px-lg-5 shadow-lg">
+                  <div><h3>Log in to Zaat</h3></div>
+                  <div class="fs0875 px-2 fs-bolder">
+                    By logging in to Zaat, you agree to <a href="" class="text-decoration-none">Terms of Service</a> and <a href="" class="text-decoration-none">Privacy Policy</a>.
+                  </div>
+                  <div class="row pt-5">
+                    <div class="col-sm-6 mb-3">
+                      <%= link_to "www.baidu.com", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill" do %>
+                        <div class="d-flex justify-content-center bg-dark rounded-pill py-3">
+                          <%= bootstrap_icon "envelope", width: 24 %>
+                          <span class="ps-2">Email</span>
+                        </div>
+                      <% end %>
+
+                    </div>
+
+                    <div class="col-sm-6 mb-3">
+
+                      <%= link_to "www.baidu.com", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill" do %>
+                        <div class="d-flex justify-content-center bg-dark rounded-pill py-3">
+                          <%= image_tag "metamask.png", width: 24 %>
+                          
+                          <span class="ps-2">Metamask</span>
+                        </div>
+                      <% end %>
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -39,54 +75,13 @@
   </div>
 </nav>
 
-<style>
-.mouse-cursor-gradient-tracking {
-  position: relative;
-  /* background-image: linear-gradient(90deg, #FA1AFF 0%, #0D50FE 100%); */
-  /* padding: 0.5rem 1rem; */
-  border: none;
-  color: white;
-  cursor: pointer;
-  outline: none;
-  overflow: hidden;
-}
-
-.mouse-cursor-gradient-tracking span {
-  position: relative;
-}
-
-.mouse-cursor-gradient-tracking::before {
-  --size: 0;
-  content: '';
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--size);
-  height: var(--size);
-  background: radial-gradient(circle closest-side, pink, transparent);
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease;
-}
-
-.mouse-cursor-gradient-tracking:hover::before {
-  --size: 100px;
-}
-
-.gradient-text {
-    background: linear-gradient(to right, #ff0000, #00ff00); /* 定义渐变背景，从红色到绿色 */
-    -webkit-background-clip: text; /* 使用 WebKit 的 background-clip 属性将背景仅渲染在文本上 */
-    background-clip: text; /* background-clip 属性将背景仅渲染在文本上 (标准属性) */
-    /* color: transparent; 隐藏实际文本颜色 */
-}
-</style>
-
 <script>
-let btn = document.querySelector('.mouse-cursor-gradient-tracking');
-btn.addEventListener('mousemove', e => {
-  let rect = e.target.getBoundingClientRect();
-  let x = e.clientX - rect.left;
-  let y = e.clientY - rect.top;
-  btn.style.setProperty('--x', x + 'px');
-  btn.style.setProperty('--y', y + 'px');
-});
+  let btn = document.querySelector('.mouse-cursor-gradient-tracking');
+  btn.addEventListener('mousemove', e => {
+    let rect = e.target.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+    btn.style.setProperty('--x', x + 'px');
+    btn.style.setProperty('--y', y + 'px');
+  });
 </script>
