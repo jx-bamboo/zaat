@@ -22,7 +22,7 @@ body {
   border: 0.1px solid red;
 }
 
-.bg_gradient {
+.bg_gradient, .hover_to_gradient:hover {
   background-image: linear-gradient(90deg, #FA1AFF 0%, #0D50FE 100%);
 }
 

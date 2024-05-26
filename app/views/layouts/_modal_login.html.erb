@@ -1,0 +1,41 @@
+<div class="modal fade blur-div-background" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered px-4">
+    <div class="modal-content text-light">
+      <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
+        <%= image_tag "close.svg", class: "position-absolute top-0 start-100 translate-middle" %>
+      </div>
+      <div class="position-relative">
+        <button class="position-absolute top-0 start-0 bg-transparent border-0 p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= image_tag "to_left.svg" %>
+        </button>
+        
+        <div class="login_div py-5 px-2 px-sm-3 px-md-4 px-lg-5 shadow-lg">
+          <div class="text-center"><h3>Log in to Zaat</h3></div>
+          <div class="text-center fs0875 px-2 fs-bolder">
+            By logging in to Zaat, you agree to <a href="" class="text-decoration-none">Terms of Service</a> and <a href="" class="text-decoration-none">Privacy Policy</a>.
+          </div>
+          <div class="mx-auto row col-sm-8 pt-3">
+
+            <form class="form px-0 mb-3">
+              <div class="mb-3">
+                <label for="" class="form-label">Email address</label>
+                <input type="email" class="form-control form-control-lg text-bg-dark border-0" id="" placeholder="Enter email address" />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-lg text-bg-dark border-0" placeholder="Enter password">
+              </div>
+
+              <div class="pt-2 text-end d-flex justify-content-end">
+                <button type="submit" class="btn btn-lg px-5 btn-dark rounded-pill hover_to_gradient d-flex">
+                  <span class="fs0875 py-1">Log in</span>
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
