@@ -1,0 +1,43 @@
+<%= turbo_frame_tag "user_sign" do %>
+  <div class="position-relative">
+    <%= link_to auth_modal_path, class: "position-absolute top-0 start-0 bg-transparent border-0 p-3", data: {"turbo-prefetch": "false"} do %>
+      <%= image_tag "to_left.svg" %>
+    <% end %>
+    <div class="login_div py-5 px-2 px-sm-3 px-md-4 px-lg-5 shadow-lg">
+      <div class="text-center">
+        <h3>Log in to Zaat</h3>
+        <div class="fs0875 px-2 fs-bolder">
+          By logging in to Zaat, you agree to
+          <a href="" class="text-decoration-none">Terms of Service</a> and
+          <a href="" class="text-decoration-none">Privacy Policy</a>.
+        </div>
+      </div>
+      <div class="mx-auto row col-sm-8 pt-3">
+        <%= turbo_frame_tag "errors" %>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "px-0 mb-3"}) do |f| %> 
+          <%#= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+          <div class="mb-3">
+            <%= f.label :email, class: "form-label" %> 
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg text-bg-dark border-0", placeholder: "Enter email address", required: "required" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg text-bg-dark border-0", placeholder: "Enter password", required: "required" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="mb-3">
+              <%= f.check_box :remember_me %> <%= f.label :remember_me, class: "form-label" %>
+            </div>
+          <% end %>
+          <div class="pt-2 text-end d-flex justify-content-end">
+            <%= link_to "Sign up", new_user_registration_path, class: "text-light text-decoration-none nav navbar me-3", data: {"turbo-prefetch": "false"} %>
+            <button type="submit" class="btn btn-lg px-5 btn-dark rounded-pill hover_to_gradient d-flex">
+              <span class="fs0875 py-1">Log in</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

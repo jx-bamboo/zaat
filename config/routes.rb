@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get "/auth_modal", to: "home#auth_modal"
+  match '/auth/:provider/callback', to: 'home#create', via: %i[get post]
+  get '/auth/failure', to: 'home#failure'
+
+  # devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations',
+    unlocks: 'users/unlocks'
+  }
+
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

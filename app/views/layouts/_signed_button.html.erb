@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "header_right_button" do %>
+  <div class="btn-group">
+    <div class="dropdown-toggle cursor-pointer nav" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+      <%= image_tag "menu.svg", alt: "Menu", class: "h-menu" %>
+    </div>
+    <ul class="dropdown-menu dropdown-menu-end drop_menu_shadow p-0">
+      <li class="px-3">
+        <a class="icon-link text-light lh-lg p-2 text-decoration-none" href="/">
+          <%= image_tag "my_profile.svg" %> My Profile
+        </a>
+      </li>
+      <li class="px-3">
+        <a class="icon-link text-light lh-lg p-2 text-decoration-none" href="/">
+          <%= image_tag "my_model.svg" %> My Models
+        </a>
+      </li>
+      <li>
+        <%= button_to destroy_user_session_path, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete do %>
+          <%= image_tag "exit.svg" %> Log out
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <script>
+    var backdrop = document.querySelector('.modal-backdrop');  
+    if (backdrop) {  
+        backdrop.parentNode.removeChild(backdrop);  
+    }
+  </script>
+<% end %>

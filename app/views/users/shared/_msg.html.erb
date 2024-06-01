@@ -1,0 +1,11 @@
+<!-- <div class="p-2 mb-3 border-secondary border-start border-4 bg-dark"> Email Or Password Invalid. </div> -->
+
+<%= turbo_frame_tag "errors" do %>
+  <div class="flash">
+    <div class="flash__message padding1 rounded-pill" data-controller="removals" data-action="animationend->removals#remove">
+      <div class="text-center bg-dark p-3 rounded-pill">
+        Email Or Password Invalid.
+      </div>
+    </div>
+  </div>
+<% end %>

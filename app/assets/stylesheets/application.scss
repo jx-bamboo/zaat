@@ -1,6 +1,9 @@
 @import "bootstrap";
 
+@import "layouts/root";
 @import "layouts/app";
 @import "components/header";
 @import "components/home";
 @import "components/login";
+@import "layouts/flash_message";
+@import "components/animations";

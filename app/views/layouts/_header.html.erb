@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-dark py-4">
   <div class="container">
-    <a class="navbar-brand" href="#"><%= image_tag "logo.svg" %></a>
+    <a class="navbar-brand" href="<%= root_path %>"><%= image_tag "logo.svg" %></a>
     <!-- <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon text-light"></span>
     </button> -->
@@ -11,68 +11,19 @@
         </li>
       </ul>
 
-      
-
-      <div>
-        <!-- Button trigger modal -->
-        <div class="mouse-cursor-gradient-tracking btn_login fs0875 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <span class="p-0 m-0">Log in</span>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade blur-div-background" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered px-4">
-            <div class="modal-content text-light">
-              <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
-                <%= image_tag "close.svg", class: "position-absolute top-0 start-100 translate-middle" %>
-              </div>
-              <div class="position-relative">
-                
-                <div class="text-center login_div py-5 px-2 px-sm-3 px-md-4 px-lg-5 shadow-lg">
-                  <div><h3>Log in to Zaat</h3></div>
-                  <div class="fs0875 px-2 fs-bolder">
-                    By logging in to Zaat, you agree to <a href="" class="text-decoration-none">Terms of Service</a> and <a href="" class="text-decoration-none">Privacy Policy</a>.
-                  </div>
-                  <div class="row pt-5">
-
-                    <div class="col-sm-6 mb-3">
-                      <%= link_to "www.baidu.com", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill", data: { "bs-target": "#exampleModalToggle2", "bs-toggle": "modal"} do %>
-                        <div class="d-flex justify-content-center bg-dark rounded-pill py-3">
-                          <%= bootstrap_icon "envelope", width: 24 %>
-                          <span class="ps-2">Email</span>
-                        </div>
-                      <% end %>
-                    </div>
-
-                    <div class="col-sm-6 mb-3">
-                      <%= link_to "www.baidu.com", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill" do %>
-                        <div class="d-flex justify-content-center bg-dark rounded-pill py-3">
-                          <%= image_tag "metamask.png", width: 24 %>
-                          
-                          <span class="ps-2">Metamask</span>
-                        </div>
-                      <% end %>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="nav navbar">
+        <div class="bg_gradient padding1 rounded-pill me-3 cursor-pointer">
+          <div id="sign-in" class="bg-dark rounded-pill">
+            <%= image_tag "metamask.png", width: 28, class: "p-1 h-menu" %>
           </div>
         </div>
-        <!-- Modal -->
-        <%= render "layouts/modal_login" %>
+        <span class="border border-dark py-2 me-3"></span>
+        <% if user_signed_in? %>
+          <%= render "layouts/signed_button" %>
+        <% else %>
+          <%= render "layouts/no_signed_button" %>
+        <% end %>
       </div>
     <!-- </div> -->
   </div>
 </nav>
-
-<script>
-  let btn = document.querySelector('.mouse-cursor-gradient-tracking');
-  btn.addEventListener('mousemove', e => {
-    let rect = e.target.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
-    btn.style.setProperty('--x', x + 'px');
-    btn.style.setProperty('--y', y + 'px');
-  });
-</script>

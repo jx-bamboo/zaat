@@ -40,8 +40,27 @@
 }
 
 .gradient-text {
-    background: linear-gradient(to right, #ff0000, #00ff00); /* 定义渐变背景，从红色到绿色 */
-    -webkit-background-clip: text; /* 使用 WebKit 的 background-clip 属性将背景仅渲染在文本上 */
-    background-clip: text; /* background-clip 属性将背景仅渲染在文本上 (标准属性) */
-    /* color: transparent; 隐藏实际文本颜色 */
+  background: linear-gradient(to right, #ff0000, #00ff00); /* 定义渐变背景，从红色到绿色 */
+  -webkit-background-clip: text; /* 使用 WebKit 的 background-clip 属性将背景仅渲染在文本上 */
+  background-clip: text; /* background-clip 属性将背景仅渲染在文本上 (标准属性) */
+  /* color: transparent; 隐藏实际文本颜色 */
+}
+
+.drop_menu_shadow {
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(20,20,20,1);
+  box-shadow: 0px 2px 40px 6px rgba(13,80,254,0.2);
+  border-radius: 10px;
+  li:hover, .button_to button:hover {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  }
+}
+
+.h-menu {
+  transition: transform 0.3s ease
+}
+
+.h-menu:hover {
+  transform: scale(1.2);
 }
