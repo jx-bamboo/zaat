@@ -5,7 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :async
   
+  has_many :invited_users, dependent: :destroy
+  has_one :token, dependent: :destroy
+  has_many :token_changes, dependent: :destroy
+  
   # validates :email, uniqueness: { scope: :address }
-  # validates :address, uniqueness: true
+  validates :address, uniqueness: true
+
+  before_create :generate_invitation_code
+
+  private 
+  
+  def generate_invitation_code
+    self.invitation_code = SecureRandom.hex(4)
+  end
   
 end

@@ -1,0 +1,10 @@
+.bg_order_card {
+  background: #141519;
+  border: 2px solid rgba(34,36,39,1);
+  border-radius: 10px;
+}
+
+#order_prompt::placeholder {
+  color: #666;
+  opacity: 1;
+}

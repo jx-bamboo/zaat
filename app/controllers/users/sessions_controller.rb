@@ -12,9 +12,11 @@ class Users::SessionsController < Devise::SessionsController
   def create
     # super
     if user_signed_in?
-      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+      p "signed_in"
+      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button") and return false
     else
-      render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg")
+      p "not signed_in"
+      render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg") and return false
     end
 
   end

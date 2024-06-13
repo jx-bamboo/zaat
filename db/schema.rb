@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_28_080632) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_070407) do
+  create_table "invited_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invited_users_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "chain"
+    t.string "txhash"
+    t.decimal "amount"
+    t.string "method"
+    t.string "order_number"
+    t.text "prompt"
+    t.text "file"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_number"], name: "index_orders_on_order_number"
+    t.index ["txhash"], name: "index_orders_on_txhash"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "token_changes", force: :cascade do |t|
+    t.decimal "amount"
+    t.string "event"
+    t.integer "token_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token_id"], name: "index_token_changes_on_token_id"
+    t.index ["user_id"], name: "index_token_changes_on_user_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.decimal "balance"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tokens_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "phone"
     t.string "avatar"
@@ -46,4 +88,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_28_080632) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "invited_users", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "token_changes", "tokens"
+  add_foreign_key "token_changes", "users"
+  add_foreign_key "tokens", "users"
 end

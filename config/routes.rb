@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+
+  resources :order do
+    collection do
+      
+    end
+  end
+  get 'metamask/eth/:address', to: 'metamask#eth'
+  get 'profile' => 'metamask#profile', :as => 'profile'
+  post 'sign-in' => 'metamask#sign_in', :as => 'sign-in'
+  post 'message' => 'metamask#message', :as => 'message'
+  post 'sign-out' => 'metamask#sign_out', :as => 'sign-out'
+
   get "/auth_modal", to: "home#auth_modal"
   match '/auth/:provider/callback', to: 'home#create', via: %i[get post]
   get '/auth/failure', to: 'home#failure'

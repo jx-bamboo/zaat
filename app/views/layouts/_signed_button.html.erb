@@ -1,9 +1,10 @@
 <%= turbo_frame_tag "header_right_button" do %>
+  <div class="flash"><%= render "layouts/flash_message" %></div>
   <div class="btn-group">
     <div class="dropdown-toggle cursor-pointer nav" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
       <%= image_tag "menu.svg", alt: "Menu", class: "h-menu" %>
     </div>
-    <ul class="dropdown-menu dropdown-menu-end drop_menu_shadow p-0">
+    <ul class="dropdown-menu dropdown-menu-end drop_menu_shadow p-0 mt-2">
       <li class="px-3">
         <a class="icon-link text-light lh-lg p-2 text-decoration-none" href="/">
           <%= image_tag "my_profile.svg" %> My Profile
@@ -22,7 +23,7 @@
     </ul>
   </div>
   <script>
-    var backdrop = document.querySelector('.modal-backdrop');  
+    var backdrop = document.querySelector('.modal-backdrop');
     if (backdrop) {  
         backdrop.parentNode.removeChild(backdrop);  
     }
