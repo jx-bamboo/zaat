@@ -29,7 +29,15 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body mx-0 px-0 mb-3">
-                    <%= f.file_field :file, autofocus: true, class: "form-control form-control-lg text-secondary bg-transparent border-dark", required: "required" %>
+                    <%#= f.file_field :file, autofocus: true, class: "form-control form-control-lg text-secondary bg-transparent border-dark", required: "required" %>
+                    <div class="mb-3 position-relative">
+                      <div class="text-center border border-dark py-3" style="height: 200px;">
+                        <%= image_tag "upload.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
+                        <%= f.file_field :file, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_file','preview')", alt: "Upload", title: "Upload" %>
+                      </div>
+                      <div class="text-center text-light pt-2">Recommended image size should be under 10Mb.</div>
+                    </div>
+                    <%= javascript_include_tag "preview_img", "data-turbo-track": "reload" %>
                   </div>
                 </div>
               </div>

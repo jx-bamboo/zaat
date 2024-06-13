@@ -8,3 +8,12 @@
   color: #666;
   opacity: 1;
 }
+
+.preview-file{
+  opacity: 0;
+  // width: 120px;
+  height: 200px;
+  border-radius: 0.3em !important;
+  position: absolute;
+  top: 0;
+}
