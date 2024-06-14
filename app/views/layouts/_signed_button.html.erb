@@ -6,17 +6,18 @@
     </div>
     <ul class="dropdown-menu dropdown-menu-end drop_menu_shadow p-0 mt-2">
       <li class="px-3">
-        <a class="icon-link text-light lh-lg p-2 text-decoration-none" href="/">
+        <%= link_to profile_index_path, data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
           <%= image_tag "my_profile.svg" %> My Profile
-        </a>
+        <% end %>
       </li>
       <li class="px-3">
-        <a class="icon-link text-light lh-lg p-2 text-decoration-none" href="/">
+        <%= link_to profile_my_model_path, data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
           <%= image_tag "my_model.svg" %> My Models
-        </a>
+        <% end %>
       </li>
       <li>
-        <%= button_to destroy_user_session_path, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete do %>
+        <%#= button_to destroy_user_session_path, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete do %>
+        <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false }, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none" do %>
           <%= image_tag "exit.svg" %> Log out
         <% end %>
       </li>

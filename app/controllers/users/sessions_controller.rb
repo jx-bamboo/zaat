@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
       p "signed_in"
       render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button") and return false
     else
-      p "not signed_in"
+      p "---- not signed_in ----"
       render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg") and return false
     end
 
@@ -26,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
     # super
     sign_out
     # render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/no_signed_button")
-    render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/no_signed_button")
+    redirect_to root_path
   end
 
   # protected

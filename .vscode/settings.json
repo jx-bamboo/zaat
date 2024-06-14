@@ -1,0 +1,15 @@
+{
+  "editor.fontSize": 12,
+  "window.zoomLevel": 1,
+  "editor.suggestFontSize": 0,
+  "workbench.colorCustomizations": {
+    // "activityBar.background": "#058003",           //这是设置左边活动栏的背景颜色的
+    // "activityBar.activeBorder": "#000000",         //这是设置左边活动栏选中的边框颜色
+    // "tree.tableOddRowsBackground": "#f6ff00",
+    "activityBar.activeBackground": "#ff0000",     //这是设置左边活动栏选中背景颜色的
+    // "sideBar.background": "#444444",               //这是设置左边项目文件栏背景颜色
+    // "statusBar.background": "#9d00ff",             //这是设置底部状态背景颜色的
+  },
+  "window.commandCenter": true,
+  "workbench.preferredDarkColorTheme": "One Dark"
+}

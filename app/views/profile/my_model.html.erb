@@ -1,0 +1,67 @@
+<div class="home">
+  <%= render "layouts/header" %>
+  <div class="container">
+    <div class="row text-light">
+      <div class="col-sm-12">
+        <div class="profile_border p-2 p-sm-4 rounded mb-5">
+          <!-- <div class="h4 mb-3">My 3D Models</div> -->
+          <nav class="mb-4">
+            <%= link_to "All", "#", class: "text-decoration-none text-light h5" %>
+            <%= link_to "Minted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
+            <%= link_to "Unminted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
+          </nav>
+          <div class="row row-cols-auto row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
+            <!-- Modal show start -->
+            <div class="modal fade blur-div-background" data-bs-backdrop="static" data-bs-keyboard="false" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered px-4">
+                <div class="modal-content text-light">
+                  <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
+                    <%= link_to "", data: {"turbo-prefetch": "false"} do %>
+                      <%= image_tag "close.svg", class: "position-absolute top-0 start-100 translate-middle" %>
+                    <% end %>
+                  </div>
+
+                  <%= turbo_frame_tag "user_sign" do %>
+                    <%= render "profile/model_show" %>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+            <!-- Modal show start -->
+
+            <% 9.times do %>
+              <div class="col">
+                <div class="h-100 rounded profile_border">
+
+
+                  
+
+
+
+                  <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#authModal">
+                    <%= image_tag "test_img.png", class: "img-fluid rounded-top object-fit-fill" %>
+                  </div>
+                  <div class="p-2">
+                    <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            
+            
+          </div>
+
+          <div class="mt-2 py-4 text-center">
+            <%= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+              More &nbsp;<%= image_tag "to_right.svg" %>
+            <% end %>
+          </div>
+
+        </div>
+          
+      </div>
+      
+    </div>
+  </div>
+</div>

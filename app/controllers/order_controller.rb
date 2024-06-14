@@ -6,4 +6,8 @@ class OrderController < ApplicationController
   def create
     
   end
+
+  def earn
+    @order = Order.new
+  end
 end

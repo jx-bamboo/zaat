@@ -1,0 +1,147 @@
+<div class="home">
+  <%= render "layouts/header" %>
+  <div class="container">
+    <div class="row text-light">
+      <div class="col-sm-12">
+        <div class="profile_border p-2 p-sm-4 rounded">
+          <div class="row row-cols-auto justify-content-between px-auto">
+            <div class="col d-flex mb-3 mx-auto mx-sm-0">
+              <div class=""><%= image_tag "logo154.svg", width: 90 %></div>
+              <div class="px-3 d-flex flex-column justify-content-center">
+                <div class="h5">bamboojx@163.com</div>
+                <div class="">
+                  <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                    <div class="bg-dark rounded-3 p-2">
+                      <span class="">Invite Code: ABCDEFeh</span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col d-flex flex-column justify-content-center mx-auto mx-sm-0">
+              <div>Total Token</div>
+              <div class="text-warning fw-bold h4 mt-2">0.0($0.0)</div>
+            </div>
+          </div>
+          <hr class="mt-2 border border-secondary">
+          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 text-center d-flex justify-content-between">
+
+            <div class="col py-2 ">
+              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                <div class="bg-dark rounded-3 p-2 p_v_btn">
+                  <span class="">Add invite code</span>
+                </div>
+              <% end %>
+              <span class="text-secondary">+1000 Token</span>
+            </div>
+
+            <div class="col py-2">
+              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                <div class="bg-dark rounded-3 p-2 p_v_btn">
+                  <span class="">Verify Twitter</span>
+                </div>
+              <% end %>
+              <span class="text-secondary">+1000 Token</span>
+            </div>
+
+            <div class="col py-2">
+              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                <div class="bg-dark rounded-3 p-2 p_v_btn">
+                  <span class="">Verify Telegram</span>
+                </div>
+              <% end %>
+              <span class="text-secondary">+1000 Token</span>
+            </div>
+
+            <div class="col py-2">
+              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                <div class="bg-dark rounded-3 p-2 p_v_btn">
+                  <span class="">Verify Discord</span>
+                </div>
+              <% end %>
+              <span class="text-secondary">+1000 Token</span>
+            </div>
+
+            <div class="col py-2">
+              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                <div class="bg-dark rounded-3 p-2 p_v_btn">
+                  <span class="">Verify Email</span>
+                </div>
+              <% end %>
+              <span class="text-secondary">+1000 Token</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- tasks -->
+      <div class="col-sm-12 mt-4 my-5 pb-5">
+        <div class="profile_border p-2 p-sm-4 rounded">
+          <div class="h4 mb-3">Task</div>
+
+          <div class="row g-4">
+            <div class="col-sm-6">
+              <div class="p-3 nav navbar rounded-3 profile_border">
+                <div>
+                  <div class="h6">Daily greetings</div>
+                  <div>+1000 Token</div>
+                </div>
+                <div class="bg_gradient px-4 py-2 rounded-pill">
+                  Telegram
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="p-3 nav navbar rounded-3 profile_border">
+                <div>
+                  <div class="h6">Upload 3D Models</div>
+                  <div>+1000 Token</div>
+                </div>
+                <div class="bg_gradient px-4 py-2 rounded-pill">
+                  Discord
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="p-3 nav navbar rounded-3 profile_border">
+                <div>
+                  <div class="h6">Repost our tweet</div>
+                  <div>+1000 Token</div>
+                </div>
+                <div class="bg_gradient px-4 py-2 rounded-pill">
+                  Repost
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="p-3 nav navbar rounded-3 profile_border">
+                <div>
+                  <div class="h6">Share your friends</div>
+                  <div>+5000 Token</div>
+                </div>
+                <div class="bg_gradient px-4 py-2 rounded-pill">
+                  Invite
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-2 py-4 text-center">
+            <%= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+              More &nbsp;<%= image_tag "to_right.svg" %>
+            <% end %>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+
+    </div>
+  </div>
+</div>

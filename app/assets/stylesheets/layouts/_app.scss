@@ -51,6 +51,10 @@ body {
   padding: 1px;
 }
 
+.padding2 {
+  padding: 2px;
+}
+
 .w-45 {
   width: 45% !important;
 }
@@ -63,7 +67,7 @@ body {
   top: 30% !important;
 }
 
-.hover_to_gradient:hover {
+.hover_to_gradient:hover, .p_v_btn:hover {
   background-image: var(--main-bg-gradient);
 }
 

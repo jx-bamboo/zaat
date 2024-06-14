@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'profile/index'
+  get 'profile/my_model'
 
 
   resources :order do
     collection do
-      
+      get :earn
     end
   end
   get 'metamask/eth/:address', to: 'metamask#eth'
