@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "errors" do %>
+  <div class="flash">
+    <div class="flash__message padding1 rounded-pill" data-controller="removals" data-action="animationend->removals#remove">
+      <div class="text-center bg-dark p-3 rounded-pill">
+        Email unconfirmed.
+      </div>
+    </div>
+  </div>
+<% end %>

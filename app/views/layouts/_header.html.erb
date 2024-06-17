@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-dark py-4">
   <div class="container">
-    <a class="navbar-brand" href="<%= root_path %>"><%= image_tag "logo.svg" %></a>
+    <a class="navbar-brand" href="<%= root_path %>" data-turbo-prefetch="false"><%= image_tag "logo.svg" %></a>
     <!-- <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon text-light"></span>
     </button> -->
@@ -65,7 +65,7 @@
             }
           }
       } catch (error) {
-          console.log("Errors：", error);
+          console.log(error);
       } finally {
         console.log(".. finally ..")
         buttonEthConnect.disabled = false;

@@ -8,11 +8,17 @@
             <div class="col d-flex mb-3 mx-auto mx-sm-0">
               <div class=""><%= image_tag "logo154.svg", width: 90 %></div>
               <div class="px-3 d-flex flex-column justify-content-center">
-                <div class="h5">bamboojx@163.com</div>
+                <div class="h5">
+                  <% if current_user.email.end_with?('@address.zaat') %>
+                    <span class="text-secondary">example@email.com</span>
+                  <% else %>
+                    <%= current_user.email %>
+                  <% end %>
+                </div>
                 <div class="">
                   <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
                     <div class="bg-dark rounded-3 p-2">
-                      <span class="">Invite Code: ABCDEFeh</span>
+                      <span class="">Invite Code: <span class="fw-bold"><%= current_user.invitation_code %></span></span>
                     </div>
                   <% end %>
                 </div>

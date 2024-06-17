@@ -21,22 +21,16 @@ class MetamaskController < ApplicationController
         sign_in(user)
         render json: {data: "reload"}
       else
-        user = User.new(email: rand_email, password: "123456", address: )
+        user = User.new(email: rand_email, password: "123456", address:, confirmed_at: Time.now)
         respond_to do |format|
           if user.save
-            user.update(confirmed_at: Time.now)
-            logger.info "#### Metamask user already confirmed at this time. ####"
             sign_in(user)
-            render json: {data: "reload"}
+            render json: {data: "reload"} and return
           else
             render json: {data: user.errors} and return
           end
         end
       end
-
-
-
-      # render json: {data: "and so on"}
 
     end
 

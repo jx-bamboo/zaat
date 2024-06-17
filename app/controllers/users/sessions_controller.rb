@@ -10,14 +10,27 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    # super
-    if user_signed_in?
-      p "signed_in"
-      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button") and return false
+    user = User.find_for_database_authentication(email: params[:user][:email])
+    # render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/unconfirmed") and return if user && user.unconfirmed_email.nil?
+
+    if user && user.valid_password?(params[:user][:password])
+      sign_in(user)
+      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
     else
-      p "---- not signed_in ----"
-      render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg") and return false
+      render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg")
     end
+
+
+    # super
+    # if user_signed_in?
+    #   p "---- signed_in ----"
+    #   render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+    #   return
+    # else
+    #   p "---- not signed_in ----"
+    #   render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg")
+    #   return
+    # end
 
   end
 

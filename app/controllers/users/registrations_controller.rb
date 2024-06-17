@@ -11,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # super
-    user = build_resource(sign_up_params)
+    address = "zaat_#{SecureRandom.hex(4)}"
+    user = build_resource(sign_up_params.merge(address:))
     if user.save
       sign_in(user)
       render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
