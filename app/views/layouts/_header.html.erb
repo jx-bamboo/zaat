@@ -15,13 +15,13 @@
 
         <div class="bg_gradient padding1 rounded-pill me-3 cursor-pointer">
           <% if user_signed_in? %>
-            <% if current_user.address.present? %>
-              <button class="border-0 text-bg-dark rounded-pill p-0">
-                <span class="px-1"><%= simple_address current_user.address %></span>
-              </button>
-            <% else %>
+            <% if current_user.address.start_with?('zaat_') %>
               <button class="eth_connect bg-dark border-0 rounded-pill p-0">
                 <%= image_tag "metamask.png", width: 28, class: "p-1 h-menu" %>
+              </button>
+            <% else %>
+              <button class="border-0 text-bg-dark rounded-pill p-0">
+                <span class="px-1"><%= simple_address current_user.address %></span>
               </button>
             <% end %>
           <% else %>

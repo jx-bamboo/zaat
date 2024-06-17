@@ -3,18 +3,17 @@ class MetamaskController < ApplicationController
 
   def eth
     address = params[:address]
-    p address, '...'
-
     if user_signed_in?
-      if current_user.address.blank?
+      u = User.find_by(address:)
+      if u.nil?
         if current_user.update(address:)
           render json: {data: "reload"} and return
         else
           render json: {data: current_user.errors.full_messages} and return
         end
+      else
+        render json: {data: "Address is Invalid."}
       end
-      render json: {data: "reload"} and return
-
     else
       user = User.find_by_address(address)
       if user
