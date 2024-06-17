@@ -16,7 +16,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show border-0" data-bs-parent="#accordionExample">
                   <div class="accordion-body mx-0 px-0">
-                    <%= f.text_area :prompt, rows: 5, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt", required: "required" %>
+                    <%= f.text_area :prompt, rows: 5, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt" %>
                   </div>
                 </div>
               </div>
@@ -33,7 +33,7 @@
                     <div class="mb-3 position-relative">
                       <div class="text-center border border-dark py-3" style="height: 200px;">
                         <%= image_tag "upload.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
-                        <%= f.file_field :file, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_file','preview')", alt: "Upload", title: "Upload" %>
+                        <%= f.file_field :image, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_image','preview')", alt: "Upload", title: "Upload" %>
                       </div>
                       <div class="text-center text-light pt-2">Recommended image size should be under 10Mb.</div>
                     </div>
@@ -43,8 +43,8 @@
               </div>
             </div>
             <div class="mb-3">xToken Rewards Service Fee</div>
-            <%#= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
-            <button type="button" class="eth_pay form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5">Create & Pay</button>
+            <%= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+            <!-- <button type="button" class="eth_pay form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5">Create & Pay</button> -->
           <% end %>
           <script src=" https://cdn.jsdelivr.net/npm/web3@4.9.0/dist/web3.min.js "></script>
           

@@ -7,7 +7,9 @@ class CreateOrders < ActiveRecord::Migration[7.1]
       t.string :method
       t.string :order_number, index: true
       t.text :prompt
-      t.text :file
+      t.blob :image
+      t.blob :model
+      t.integer :status
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

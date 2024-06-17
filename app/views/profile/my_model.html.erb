@@ -30,17 +30,16 @@
             </div>
             <!-- Modal show start -->
 
-            <% 9.times do %>
+            <% @order.each do |order| %>
               <div class="col">
                 <div class="h-100 rounded profile_border">
-
-
-                  
-
-
-
                   <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#authModal">
-                    <%= image_tag "test_img.png", class: "img-fluid rounded-top object-fit-fill" %>
+                    <% if order.image.attached? %>
+                      <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill"  %>
+                    <% else %>
+                      <%= image_tag "test_img.png", class: "img-fluid rounded-top object-fit-fill" %>
+                    <% end %>
+                    
                   </div>
                   <div class="p-2">
                     <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>

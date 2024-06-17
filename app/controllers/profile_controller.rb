@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
   end
 
   def my_model
-    
+    p '... my model ...'
+    @order = Order.all
   end
 end
