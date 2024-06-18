@@ -5,7 +5,11 @@
       <div class="col-sm-6 px-2">
         <div class="bg_order_card px-3 h-100">
           <div class="fs-4 text-center py-5">Create your 3D Models</div>
-          <%= form_for(@order, url: order_index_path(@order), html: {class: "order_form"}) do |f| %>
+
+            <%= render "order/text_to"%>
+
+<%
+=begin  %>
             <div class="accordion mb-3" id="accordionExample">
               <div class="accordion-item bg-transparent border-0">
                 <h2 class="accordion-header fs0875 text-bg-dark">
@@ -42,10 +46,10 @@
                 </div>
               </div>
             </div>
-            <div class="mb-3">xToken Rewards Service Fee</div>
-            <%= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
-            <!-- <button type="button" class="eth_pay form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5">Create & Pay</button> -->
-          <% end %>
+<%
+=end  %>
+            
+          <!-- <button type="button" class="eth_pay form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5">Create & Pay</button> -->
           <script src=" https://cdn.jsdelivr.net/npm/web3@4.9.0/dist/web3.min.js "></script>
           
           <script>

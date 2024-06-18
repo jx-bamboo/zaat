@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :order do
     collection do
       get :earn
+      get :text_to
+      get :picture_to
     end
   end
   get 'metamask/eth/:address', to: 'metamask#eth'

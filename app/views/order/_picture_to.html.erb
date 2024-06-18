@@ -1,0 +1,20 @@
+<%= turbo_frame_tag "text_to" do %>
+
+  <%= link_to "Text to", text_to_order_index_path, data: {"turbo-prefetch": "false"}, class: "btn btn-transparent text-light border-0" %>
+  <%= link_to "Picture to", picture_to_order_index_path, data: {"turbo-prefetch": "false"}, class: "btn btn-transparent text-light border-0 bg_gradient" %>
+
+  <%= form_for(@order, url: order_index_path(@order), html: {class: "order_form"}, data: {turbo: false}) do |f| %>
+    <div class="my-3 position-relative">
+      <div class="text-center border border-dark py-3" style="height: 153px;">
+        <%= image_tag "upload.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
+        <%= f.file_field :image, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_image','preview')", alt: "Upload", title: "Upload" %>
+      </div>
+      <div class="text-center text-secondary pt-2">Recommended image size should be under 10Mb.</div>
+    </div>
+    <%= javascript_include_tag "preview_img", "data-turbo-track": "reload" %>
+
+    <div class="mb-3">xToken Rewards Service Fee</div>
+    <%= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+  <% end %>
+  
+<% end %>

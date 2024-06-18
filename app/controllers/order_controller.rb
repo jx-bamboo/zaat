@@ -20,6 +20,16 @@ class OrderController < ApplicationController
     @order = Order.new
   end
 
+  def text_to
+    @order = Order.new
+    render turbo_stream: turbo_stream.replace("text_to", partial: "order/text_to")
+  end
+
+  def picture_to
+    @order = Order.new
+    render turbo_stream: turbo_stream.replace("text_to", partial: "order/picture_to")
+  end
+
   private 
   def order_params
     params.require(:order).permit(:prompt, :image, :model).merge(user_id: current_user.id)
