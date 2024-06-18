@@ -9,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration[7.1]
       t.text :prompt
       t.blob :image
       t.blob :model
-      t.integer :status
+      t.integer :status, null: false, default: 0
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

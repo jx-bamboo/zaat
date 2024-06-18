@@ -1,6 +1,8 @@
 class OrderController < ApplicationController
   def new
     @order = Order.new
+    @my_order_pendding = current_user.orders.my_order_pendding 
+    p @my_order_pendding.size, '......'
   end
   
   def create

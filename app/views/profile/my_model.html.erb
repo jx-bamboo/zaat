@@ -32,18 +32,24 @@
 
             <% @order.each do |order| %>
               <div class="col">
-                <div class="h-100 rounded profile_border">
+                <div class="h-100 rounded profile_border  position-relative"">
                   <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#authModal">
                     <% if order.image.attached? %>
                       <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill"  %>
                     <% else %>
-                      <%= image_tag "test_img.png", class: "img-fluid rounded-top object-fit-fill" %>
+                      <%= image_tag "logo154.svg", class: "img-fluid rounded-top object-fit-fill" %>
                     <% end %>
                     
                   </div>
                   <div class="p-2">
                     <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>
                   </div>
+                  <% if order.status == 0 %>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg_gradient">
+                      pendding
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  <% end %>
                 </div>
               </div>
             <% end %>

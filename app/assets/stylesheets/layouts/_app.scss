@@ -23,7 +23,8 @@ body {
 }
 
 .bg_gradient {
-  background-image: var(--main-bg-gradient);
+  --bs-bg-opacity: 1;
+  background-image: var(--main-bg-gradient) !important;
 }
 
 .fs075{

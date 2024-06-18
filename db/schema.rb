@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_090725) do
     t.text "prompt"
     t.binary "image"
     t.binary "model"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
