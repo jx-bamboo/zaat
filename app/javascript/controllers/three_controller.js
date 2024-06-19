@@ -40,9 +40,8 @@ export default class extends Controller {
     
     parentDiv.appendChild(this.renderer.domElement);
     this.camera.position.z = 5;
-    // ...................
-    // 设置父级 div 的尺寸
 
+    // ..........设置父级 div 的尺寸.........
     window.addEventListener('resize', () => {
         // 更新相机和渲染器的大小
         const width = parentDiv.clientWidth;
@@ -52,18 +51,33 @@ export default class extends Controller {
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);
     });
-    // ...................
+    // .........设置父级 div 的尺寸..........
+
     this.animate();
+
+
+
+
+    const loadingText = document.createElement('div');
+    loadingText.innerText = '正在加载...';
+    parentDiv.appendChild(loadingText);
+
+
+
 
     this.loader = new GLTFLoader();
     const imagePath = '/three/eiffel.glb';
-    // const url = new URL(imagePath, window.location.origin).toString();
+
     this.loader.load(imagePath, (gltf) => {
       console.log('... loader ...');
 
       this.scene.add(gltf.scene);
+      // 加载完成后移除加载动画
+      parentDiv.removeChild(loadingText);
     }, undefined, (error) => {
       console.error(error);
+      // 加载出错时也移除加载动画
+      parentDiv.removeChild(loadingText);
     });
   }
 
