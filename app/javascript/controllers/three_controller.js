@@ -14,6 +14,7 @@ export default class extends Controller {
   connect() {
     console.log("---- three ----")
     const parentDiv = document.getElementById("three");
+    const model_bg = document.getElementById("model_bg");
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color('#263238');
@@ -54,30 +55,28 @@ export default class extends Controller {
     // .........设置父级 div 的尺寸..........
 
     this.animate();
-
-
-
-
+    
+    const mmodel = document.getElementById("mmodel")
     const loadingText = document.createElement('div');
-    loadingText.innerText = '正在加载...';
-    parentDiv.appendChild(loadingText);
-
-
-
+    loadingText.innerText = 'Loading...';
+    loadingText.classList.add('text-center', 'position-absolute', 'start-50', 'top-50', 'translate-middle', 'h1');
+    mmodel.appendChild(loadingText);
 
     this.loader = new GLTFLoader();
     const imagePath = '/three/eiffel.glb';
 
     this.loader.load(imagePath, (gltf) => {
       console.log('... loader ...');
-
       this.scene.add(gltf.scene);
-      // 加载完成后移除加载动画
-      parentDiv.removeChild(loadingText);
+      // parentDiv.removeChild(loadingText);
+      loadingText.classList.add("d-none");
     }, undefined, (error) => {
       console.error(error);
       // 加载出错时也移除加载动画
-      parentDiv.removeChild(loadingText);
+      // parentDiv.removeChild(loadingText);
+      loadingText.classList.add("d-none");
+
+
     });
   }
 
