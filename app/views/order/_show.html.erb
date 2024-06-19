@@ -1,0 +1,23 @@
+<div class="bg-dark p-4 rounded">
+  <% if order.pending? %>
+    <!-- <div class="text-center text-light py-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden text-light">Loading...</span>
+      </div>
+      <div class="mt-3">Pending ...</div>
+    </div> -->
+    <div class="row col-sm-12" data-controller="three">
+      <div id="three"></div>
+    </div>
+  <% end %>
+  
+  <% if order.prompt.present? %>
+    <div class="border border-secondary rounded p-2 text-secondary mt-3">明白了！如果你想使用 turbo-rails 来实现只在单击标题时显示订单详细信息的modal，可以按照以下步骤进行操作：</div>
+  <% end %>
+
+  <div class="d-flex justify-content-evenly py-4">
+    <%= link_to "Download", "", data: {"turbo-prefetch": false}, class: "bg_gradient px-4 py-2 rounded-pill text-decoration-none text-light" %>
+    <%= link_to "NFT Marketplace", "", data: {"turbo-prefetch": false}, class: "bg_gradient px-4 py-2 rounded-pill text-decoration-none text-light" %>
+    <%#= link_to "Prompt", "", data: {"turbo-prefetch": "false"}, class: "bg_gradient px-4 py-2 rounded-pill text-decoration-none text-light" %>
+  </div>
+</div>

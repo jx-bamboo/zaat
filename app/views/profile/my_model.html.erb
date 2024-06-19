@@ -12,7 +12,7 @@
           </nav>
           <div class="row row-cols-auto row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
             <!-- Modal show start -->
-            <div class="modal fade blur-div-background" data-bs-backdrop="static" data-bs-keyboard="false" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal fade blur-div-background" data-bs-backdrop="static" data-bs-keyboard="false" id="modelShow" tabindex="-1" aria-labelledby="modelShowLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-centered px-4">
                 <div class="modal-content text-light">
                   <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
@@ -21,40 +21,40 @@
                     <% end %>
                   </div>
 
-                  <%= turbo_frame_tag "user_sign" do %>
-                    <%= render "profile/model_show" %>
-                  <% end %>
+                  <%= turbo_frame_tag "model_show" %>
 
                 </div>
               </div>
             </div>
-            <!-- Modal show start -->
-
+            <!-- Modal show end -->
             <% @order.each do |order| %>
               <div class="col">
-                <div class="h-100 rounded profile_border  position-relative"">
-                  <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#authModal">
-                    <% if order.image.attached? %>
-                      <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill"  %>
-                    <% else %>
-                      <%= image_tag "logo154.svg", class: "img-fluid rounded-top object-fit-fill" %>
-                    <% end %>
-                    
-                  </div>
+                <div class="h-100 rounded profile_border position-relative"">
+                  <%= link_to order_path(order), data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
+                    <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#modelShow">
+                      <% if order.image.attached? %>
+                        <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
+                      <% else %>
+                        <div class="text-center text-light py-5">
+                          <div class="spinner-border" role="status">
+                            <span class="visually-hidden text-light">Loading...</span>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
                   <div class="p-2">
                     <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>
                   </div>
                   <% if order.status == 0 %>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg_gradient">
-                      pendding
-                      <span class="visually-hidden">unread messages</span>
+                      pending
+                      <span class="visually-hidden"></span>
                     </span>
                   <% end %>
                 </div>
               </div>
             <% end %>
-            
-            
           </div>
 
           <div class="mt-2 py-4 text-center">
