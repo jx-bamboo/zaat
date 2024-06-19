@@ -13,6 +13,7 @@ export default class extends Controller {
 
   connect() {
     console.log("---- three ----")
+    const parentDiv = document.getElementById("three");
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color('#263238');
@@ -28,8 +29,7 @@ export default class extends Controller {
     ambientLight.intensity = 2; // 增加环境光的强度
     this.scene.add(ambientLight);
     
-    // this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera = new THREE.PerspectiveCamera(50, 700 / 700, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, 700 / 500, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer();
     // this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setSize(700, 500);
@@ -38,27 +38,10 @@ export default class extends Controller {
     this.controls.enableDamping = true; // 鼠标平滑控制旋转
     this.controls.update();
     
-    document.getElementById("three").appendChild(this.renderer.domElement);
-    // const geometry = new THREE.BoxGeometry(1, 1, 1);
-    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    // this.cube = new THREE.Mesh(geometry, material);
-    // this.scene.add(this.cube);
+    parentDiv.appendChild(this.renderer.domElement);
     this.camera.position.z = 5;
     // ...................
     // 设置父级 div 的尺寸
-    const parentDiv = document.getElementById("three");
-    // const width = parentDiv.Width;
-    // const height = parentDiv.Height;
-
-    // this.renderer.setSize(width, height);
-
-    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    // this.controls.enableDamping = true;
-    // this.controls.update();
-
-    // parentDiv.appendChild(this.renderer.domElement);
-
-    // // this.camera.position.z = 5;
 
     window.addEventListener('resize', () => {
         // 更新相机和渲染器的大小
