@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "header_right_button" do %>
   <!-- Button trigger modal -->
-  <div class="mouse-cursor-gradient-tracking btn_login fs0875 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#authModal">
+  <div class="mouse-cursor-gradient-tracking btn_login fs0875 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#authModal" data-controller="mousecursor">
     <span class="p-0 m-0">Log in</span>
   </div>
   <!-- Modal -->
@@ -20,14 +20,4 @@
       </div>
     </div>
   </div>
-  <script>
-    let btn = document.querySelector('.mouse-cursor-gradient-tracking');
-    btn.addEventListener('mousemove', e => {
-      let rect = e.target.getBoundingClientRect();
-      let x = e.clientX - rect.left;
-      let y = e.clientY - rect.top;
-      btn.style.setProperty('--x', x + 'px');
-      btn.style.setProperty('--y', y + 'px');
-    });
-  </script>
 <% end %>

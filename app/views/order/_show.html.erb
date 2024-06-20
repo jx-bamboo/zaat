@@ -12,7 +12,7 @@
   <% end %>
   
   <% if order.prompt.present? %>
-    <div class="border border-secondary rounded p-2 text-secondary mt-3">明白了！如果你想使用 turbo-rails 来实现只在单击标题时显示订单详细信息的modal，可以按照以下步骤进行操作：</div>
+    <div class="border border-secondary rounded p-2 text-secondary mt-3"><%= order.prompt %></div>
   <% end %>
 
   <div class="d-flex justify-content-evenly py-4">

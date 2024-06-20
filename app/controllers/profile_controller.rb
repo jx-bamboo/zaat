@@ -4,6 +4,6 @@ class ProfileController < ApplicationController
 
   def my_model
     p '... my model ...'
-    @order = Order.all
+    @order = Order.order(created_at: :desc)
   end
 end

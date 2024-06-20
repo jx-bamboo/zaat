@@ -7,7 +7,7 @@
     <div class="my-3 position-relative">
       <div class="text-center border border-dark py-3" style="height: 153px;">
         <%= image_tag "upload.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
-        <%= f.file_field :image, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_image','preview')", alt: "Upload", title: "Upload" %>
+        <%= f.file_field :image, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_image','preview')", required: "required" %>
       </div>
       <div class="text-center text-secondary pt-2">Recommended image size should be under 10Mb.</div>
     </div>

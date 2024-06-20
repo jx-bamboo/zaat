@@ -5,11 +5,12 @@
 
   <%= form_for(@order, url: order_index_path(@order), html: {class: "order_form"}, data: {turbo: false}) do |f| %>
     <div class="mt-3">
-      <%= f.text_area :prompt, rows: 8, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt" %>
+      <%= f.text_area :prompt, rows: 8, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt", required: "required" %>
     </div>
 
     <div class="mb-3 text-secondary">xToken Rewards Service Fee</div>
-    <%= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+    <%#= f.submit "Create & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+    <button class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5">Create & Pay</button>
   <% end %>
   
 <% end %>
