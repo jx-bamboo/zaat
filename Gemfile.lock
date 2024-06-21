@@ -388,6 +388,7 @@ DEPENDENCIES
   redis (>= 4.0.1)
   sass-rails
   selenium-webdriver
+  sidekiq
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

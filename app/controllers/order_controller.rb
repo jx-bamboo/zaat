@@ -16,13 +16,14 @@ class OrderController < ApplicationController
     p params, '..............'
 
     order = Order.new(order_params)
-    p order, '....'
+    
     if order.save
-      p "ssssssssssss"
-      redirect_to profile_my_model_path
+      OrderJob.perform_later(order.id, order.txhash, order.status)
+      redirect_to profile_my_model_path, notice: "Success"
     else
-      p "eeeeeeeeeeeeeeeeeeeeee"
+      p "... no saved ..."
     end
+
   end
 
   def earn
@@ -41,6 +42,6 @@ class OrderController < ApplicationController
 
   private 
   def order_params
-    params.require(:order).permit(:prompt, :image, :model).merge(user_id: current_user.id)
+    params.require(:order).permit(:prompt, :image, :model, :txhash).merge(user_id: current_user.id)
   end
 end

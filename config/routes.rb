@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   get 'profile/index'
   get 'profile/my_model'
-
 
   resources :order do
     collection do
       get :earn
       get :text_to
       get :picture_to
+      get :createorder
     end
   end
   get 'metamask/eth/:address', to: 'metamask#eth'

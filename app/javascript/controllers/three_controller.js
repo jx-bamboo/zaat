@@ -29,11 +29,13 @@ export default class extends Controller {
     const ambientLight = new THREE.AmbientLight(0xffffff); // 设置光照颜色
     ambientLight.intensity = 2; // 增加环境光的强度
     this.scene.add(ambientLight);
+    this.scene.position.setY(-1);
     
     this.camera = new THREE.PerspectiveCamera(75, 700 / 500, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer();
-    // this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setSize(700, 500);
+    this.renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
+    // this.renderer.setSize(700, 500);
+    
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true; // 鼠标平滑控制旋转
@@ -78,6 +80,7 @@ export default class extends Controller {
 
 
     });
+
   }
 
   animate = () => {

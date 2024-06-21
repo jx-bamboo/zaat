@@ -2,7 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    
+    console.log('... order pay ...')
+
+    // const web3 = new Web3(window.ethereum)
+    // const value = web3.utils.toWei('1','ether')
+    // console.log(value)
   }
 
   async pay(){

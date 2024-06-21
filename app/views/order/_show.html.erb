@@ -1,5 +1,5 @@
 <div class="bg-dark p-4 rounded">
-  <% if order.pending? %>
+  <% if order.status == "pending" %>
     <!-- <div class="text-center text-light py-5">
       <div class="spinner-border" role="status">
         <span class="visually-hidden text-light">Loading...</span>

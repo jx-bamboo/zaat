@@ -29,7 +29,7 @@
             <!-- Modal show end -->
             <% @order.each do |order| %>
               <div class="col">
-                <div class="h-100 rounded profile_border position-relative"">
+                <div class="h-100 rounded profile_border position-relative">
                   <%= link_to order_path(order), data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
                     <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#modelShow">
                       <% if order.image.attached? %>
@@ -58,9 +58,9 @@
           </div>
 
           <div class="mt-2 py-4 text-center">
-            <%= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
-              More &nbsp;<%= image_tag "to_right.svg" %>
-            <% end %>
+            <%#= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+              <!-- More &nbsp;<%#= image_tag "to_right.svg" %> -->
+            <%# end %>
           </div>
 
         </div>
