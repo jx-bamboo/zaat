@@ -1,16 +1,22 @@
 class OrderJob < ApplicationJob
-  queue_as :default
+  queue_as :metamask_pay
 
   def perform(id, txhash, status)
-    p params, '....................'
-    return false if status != 0
+    return false unless status == "pending"
 
-    order = Order.find(order_id)
-    bsc_result = call_bsc_api(txhash)
+    order = Order.find_by(id:)
+    return false unless order
 
-    if bsc_result
-      order.update(status: 1)
-      ThreeJob.perform_later(order.id)
+    begin
+      if call_bsc_api(txhash)
+        order.update(status: 1)
+        ThreeJob.perform_later(order.id)
+      else
+        raise 'API returned unsuccessful or unexpected data.'
+      end
+    rescue StandardError => e
+      logger.error "OrderJob error: #{e.message}, order_id: #{id}, txhash: #{txhash}"
+      raise e
     end
   end
 
@@ -18,31 +24,23 @@ class OrderJob < ApplicationJob
 
   def call_bsc_api(txhash)
     bsc_key = "1M5JQRT1W4B4DYBBKTPYD1WMMHGIU9T8G9"
-    url = URI("https://api-testnet.bscscan.com/api?module=account&action=txlistinternal&txhash=#{txhash}&apikey=#{bsc_key}")
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-
-    request = Net::HTTP::Get.new(url)
+    uri = "https://api-testnet.bscscan.com/api?module=account&action=txlistinternal&txhash=#{txhash}&apikey=#{bsc_key}"
+    response = Faraday.get(uri)
     
-    response = http.request(request)
-    if response.is_a?(Net::HTTPSuccess)
+    begin
+      raise "HTTP request failed: #{JSON.parse(response.body)['message']}" unless response.status >= 200 && response.status < 300
+      
       result = JSON.parse(response.body)
-      if result["status"] == "1"
-        # 处理结果
-        # balance = result["result"].to_i / 10**18  # 将余额转换成BSC单位
-        return true
-      else
-        # 如果API响应不是成功状态，则记录错误或者抛出异常
-        puts "API返回错误：#{result["message"]}"
-        # raise "API返回错误：#{result["message"]}"
-        return false
-      end
-    else
-      # 处理HTTP请求失败的情况
-      puts "HTTP请求失败：#{response.code} #{response.message}"
-      # raise "HTTP请求失败：#{response.code} #{response.message}"
+      raise "API response error: #{result['message']}" unless result["status"] == "1"
+      
+      return true
+    rescue JSON::ParserError => e
+      logger.error "JSON error: #{e.message}"
+      return false
+    rescue StandardError => e
+      logger.error "API call error: #{e.message}"
       return false
     end
   end
+
 end
