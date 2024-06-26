@@ -10,11 +10,11 @@
 
     <div class="row text-light py-4 mt-sm-2 mt-md-3 mt-lg-4 mt-xl-5">
       <div class="col-sm-6 p-2 nav navbar">
-        <div class="mx-auto text-start">
-          <div class="h2 pb-2">Building multimodal AI to expand </div>
-          <div class="h2 pb-2">imagination and capabilities</div>
-          <div class="h2 pb-2">integrated with Web3</div>
-          <div class="nav-navbar py-4">
+        <div class="mx-auto">
+          <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">Building multimodal AI to expand </div>
+          <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">imagination and capabilities</div>
+          <div class="h-fs pb-2 text-start">integrated with Web3</div>
+          <div class="nav-navbar text-center text-sm-start py-4 py-sm-0 py-md-4">
             <a href="#"><%= image_tag "twitter.svg" %></a>
             <a class="ps-3" href="#"><%= image_tag "discord.svg" %></a>
             <a class="ps-3" href="#"><%= image_tag "github.svg" %></a>
@@ -23,39 +23,8 @@
           </div>
         </div>
       </div>
-
-      <div class="col-sm-6 row row-cols-2 mx-0">
-        <div>
-          <% if user_signed_in? %>
-            <a href="/order/new" class="d-block position-relative" data-turbo-prefetch="false">
-              <%= image_tag "home_btn_creat.png", class: "img-fluid btn_shadow_create rounded-4" %>
-              <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-                <div class="h2 fw-bold mb-5 text_shadow_create">Create</div>
-              </div>
-            </a>
-          <% else %>
-            <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
-              <%= image_tag "home_btn_creat.png", class: "img-fluid btn_shadow_create rounded-4" %>
-              <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-                <div class="h2 fw-bold mb-5 text_shadow_create">Create</div>
-              </div>
-            </a>
-          <% end %>
-        </div>
-        
-        <div>
-          <a href="/order/earn" class="d-block position-relative" data-turbo-prefetch="false">
-            <%= image_tag "home_btn_earn.png", class: "img-fluid btn_shadow_earn rounded-4" %>
-            <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-              <div class="h2 fw-bold fw-bold mb-5 text_shadow_earn">Earn</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
+      <%= render "home/two_btn" %>
     </div>
     
-  </div>
-
-    
+  </div> 
 </div>

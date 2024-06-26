@@ -52,3 +52,4 @@ gem "hotwire_scaffold_generator"
 # gem "siwe"
 gem "sidekiq"
 gem "faraday"
+gem 'faraday-excon'

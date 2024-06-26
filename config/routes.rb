@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "test" => "home#test", :as => "test"
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 

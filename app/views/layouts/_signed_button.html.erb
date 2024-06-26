@@ -15,6 +15,18 @@
           <%= image_tag "my_model.svg" %> My Models
         <% end %>
       </li>
+      <li><hr class="dropdown-divider border border-dark"></li>
+      <li class="px-3">
+        <%= link_to "/order/new", data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
+          <%= image_tag "my_model.svg" %> Create
+        <% end %>
+      </li>
+      <li class="px-3">
+        <%= link_to "/order/earn", data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
+          <%= image_tag "my_model.svg" %> Earn
+        <% end %>
+      </li>
+      <li><hr class="dropdown-divider border border-dark"></li>
       <li>
         <%#= button_to destroy_user_session_path, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete do %>
         <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false }, class: "border-0 w-100 bg-black icon-link text-light lh-lg py-2 ps-4 text-decoration-none" do %>

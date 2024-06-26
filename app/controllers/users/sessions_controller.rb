@@ -15,7 +15,11 @@ class Users::SessionsController < Devise::SessionsController
 
     if user && user.valid_password?(params[:user][:password])
       sign_in(user)
-      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+      # render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+      render turbo_stream: [
+        turbo_stream.replace("header_right_button", partial: "layouts/signed_button"),
+        turbo_stream.replace("two_btn", partial: "home/two_btn")
+      ]
     else
       render turbo_stream: turbo_stream.replace("errors", partial: "users/shared/msg")
     end

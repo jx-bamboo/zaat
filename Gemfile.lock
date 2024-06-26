@@ -142,9 +142,13 @@ GEM
       devise (>= 4.0)
     drb (2.2.1)
     erubi (1.12.0)
+    excon (0.110.0)
     execjs (2.9.1)
     faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
+    faraday-excon (2.1.0)
+      excon (>= 0.27.4)
+      faraday (~> 2.0)
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
@@ -384,6 +388,7 @@ DEPENDENCIES
   devise
   devise-async
   faraday
+  faraday-excon
   hotwire_scaffold_generator
   image_processing (~> 1.2)
   importmap-rails

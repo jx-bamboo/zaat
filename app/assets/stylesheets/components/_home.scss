@@ -25,3 +25,31 @@
 .btn_shadow_earn {
   box-shadow: 0px 0px 20px -5px #FA1AFF;
 }
+
+/* 小于 576px（Bootstrap 的 sm 断点） */  
+@media (max-width: 575.98px) {  
+  .h-fs {
+    font-size: 1.25rem;
+  }  
+}  
+  
+/* 576px 到 767.98px 之间（Bootstrap 的 md 断点） */  
+@media (min-width: 576px) and (max-width: 767.98px) {  
+  .h-fs {
+    font-size: 1rem;
+  }  
+}  
+  
+/* 768px 到 991.98px 之间（Bootstrap 的 lg 断点） */  
+@media (min-width: 768px) and (max-width: 991.98px) {  
+  .h-fs {
+    font-size: 1.5rem;
+  }  
+}  
+  
+/* 992px 及更大（Bootstrap 的 xl 断点） */  
+@media (min-width: 992px) {  
+  .h-fs {
+    font-size: 1.75rem;
+  }  
+}
