@@ -1,30 +1,25 @@
 <%= turbo_frame_tag "two_btn", class: "col-sm-6 row row-cols-2 mx-0" do %>
-  <!-- <div class="col-sm-6 row row-cols-2 mx-0"> -->
+  <% if user_signed_in? %>
     <div>
-      <% if user_signed_in? %>
-        <a href="/order/new" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
-          <%= image_tag "home_btn_creat.png", class: "img-fluid btn_shadow_create rounded-4" %>
-          <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-            <div class="h2 fw-bold mb-5 text_shadow_create">Create</div>
-          </div>
-        </a>
-      <% else %>
-        <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
-          <%= image_tag "home_btn_creat.png", class: "img-fluid btn_shadow_create rounded-4" %>
-          <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-            <div class="h2 fw-bold mb-5 text_shadow_create">Create</div>
-          </div>
-        </a>
-      <% end %>
-    </div>
-
-    <div>
-      <a href="/#" class="d-block position-relative" data-turbo-prefetch="false">
-        <%= image_tag "home_btn_earn.png", class: "img-fluid btn_shadow_earn rounded-4" %>
-        <div class="text-white position-absolute top-30 start-50 translate-middle d-flex flex-column align-content-center">
-          <div class="h2 fw-bold fw-bold mb-5 text_shadow_earn">Earn</div>
-        </div>
+      <a href="/order/new" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
+        <%= render "btn_create" %>
       </a>
     </div>
-  <!-- </div> -->
+    <div>
+      <a href="/order/earn" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
+        <%= render "btn_earn" %>
+      </a>
+    </div>
+  <% else %>
+    <div>
+      <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
+        <%= render "btn_create" %>
+      </a>
+    </div>
+    <div>
+      <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
+        <%= render "btn_earn" %>
+      </a>
+    </div>
+  <% end %>
 <% end %>

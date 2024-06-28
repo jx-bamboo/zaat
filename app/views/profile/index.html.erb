@@ -16,9 +16,10 @@
                   <% end %>
                 </div>
                 <div>
-                  <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+                  <%= link_to "javascript:void(0)", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false", controller: "clipboard", action: "clipboard#copy"} do %>
+                  <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: current_user.invitation_code %>
                     <div class="bg-dark rounded-3 p-2">
-                      <span class="">Invite Code: <span class="fw-bold"><%= current_user.invitation_code %></span></span>
+                      <span class="">Code: <span class="fw-bold"><%= current_user.invitation_code %></span></span>
                     </div>
                   <% end %>
                 </div>
@@ -129,9 +130,12 @@
                   <div class="h6">Share your friends</div>
                   <div>+5000 Token</div>
                 </div>
-                <div class="bg_gradient px-4 py-2 rounded-pill">
-                  Invite
-                </div>
+                <a href="javascript:void(0)" data-controller="clipboard" data-action="clipboard#copy" class="text-decoration-none text-light">
+                  <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: "https://www.zaat.ai?code=#{current_user.invitation_code}" %>
+                  <div class="bg_gradient px-4 py-2 rounded-pill">
+                    Invite
+                  </div>
+                </a>
               </div>
             </div>
 

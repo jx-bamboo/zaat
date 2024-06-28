@@ -18,12 +18,12 @@
       <li><hr class="dropdown-divider border border-dark"></li>
       <li class="px-3">
         <%= link_to "/order/new", data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
-          <%= image_tag "my_model.svg" %> Create
+        <%= bootstrap_icon "plus-circle", width: 24 %> Create
         <% end %>
       </li>
       <li class="px-3">
         <%= link_to "/order/earn", data: {"turbo-prefetch": "false", turbo: false}, class: "icon-link text-light lh-lg p-2 text-decoration-none" do %>
-          <%= image_tag "my_model.svg" %> Earn
+          <%= bootstrap_icon "currency-dollar", width: 24 %> Earn
         <% end %>
       </li>
       <li><hr class="dropdown-divider border border-dark"></li>
