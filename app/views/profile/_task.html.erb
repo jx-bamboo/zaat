@@ -1,0 +1,67 @@
+<div class="col-sm-12 mt-4 my-5 pb-5">
+  <div class="profile_border p-2 p-sm-4 rounded">
+    <div class="h4 mb-3">Task</div>
+
+    <div class="row g-4">
+      <div class="col-sm-6">
+        <div class="p-3 nav navbar rounded-3 profile_border">
+          <div>
+            <div class="h6">Daily greetings</div>
+            <div>+1000 Token</div>
+          </div>
+          <div class="bg_gradient px-4 py-2 rounded-pill">
+            Telegram
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="p-3 nav navbar rounded-3 profile_border">
+          <div>
+            <div class="h6">Upload 3D Models</div>
+            <div>+1000 Token</div>
+          </div>
+          <div class="bg_gradient px-4 py-2 rounded-pill">
+            Discord
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="p-3 nav navbar rounded-3 profile_border">
+          <div>
+            <div class="h6">Repost our tweet</div>
+            <div>+1000 Token</div>
+          </div>
+          <div class="bg_gradient px-4 py-2 rounded-pill">
+            Repost
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="p-3 nav navbar rounded-3 profile_border">
+          <div>
+            <div class="h6">Share your friends</div>
+            <div>+5000 Token</div>
+          </div>
+          <a href="javascript:void(0)" data-controller="clipboard" data-action="clipboard#copy" class="text-decoration-none text-light">
+            <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: "https://www.zaat.ai?code=#{current_user.invitation_code}" %>
+            <div class="bg_gradient px-4 py-2 rounded-pill">
+              Invite
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-2 py-4 text-center">
+      <%#= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+        <!-- More &nbsp;<%#= image_tag "to_right.svg" %> -->
+      <%# end %>
+    </div>
+    
+  </div>
+  
+</div>

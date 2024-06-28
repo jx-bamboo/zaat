@@ -2,23 +2,23 @@
   <% if user_signed_in? %>
     <div>
       <a href="/order/new" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
-        <%= render "btn_create" %>
+        <%= render "home/btn_create" %>
       </a>
     </div>
     <div>
       <a href="/order/earn" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
-        <%= render "btn_earn" %>
+        <%= render "home/btn_earn" %>
       </a>
     </div>
   <% else %>
     <div>
       <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
-        <%= render "btn_create" %>
+        <%= render "home/btn_create" %>
       </a>
     </div>
     <div>
       <a href="#" class="d-block position-relative" data-bs-toggle="modal" data-bs-target="#authModal">
-        <%= render "btn_earn" %>
+        <%= render "home/btn_earn" %>
       </a>
     </div>
   <% end %>
