@@ -15,7 +15,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user = build_resource(sign_up_params.merge(address:))
     if user.save
       sign_in(user)
-      render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+      # render turbo_stream: turbo_stream.replace("header_right_button", partial: "layouts/signed_button")
+      render turbo_stream: [
+        turbo_stream.replace("header_right_button", partial: "layouts/signed_button"),
+        turbo_stream.replace("two_btn", partial: "home/two_btn")
+      ]
     else
       render turbo_stream: turbo_stream.replace("sign_up_errors", partial: "users/shared/error_messages", locals: {resource: resource})
     end

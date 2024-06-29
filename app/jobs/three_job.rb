@@ -11,7 +11,7 @@ class ThreeJob < ApplicationJob
     
     data = build_api_data(order)
     # {:name=>"SubmitDraftModelGenerationTask", :prompt=>"aaa", :taskId=>27, :API_Key=>"tsk_ar0lW2-VK1Njosnh0dnYpbfb3NlvudczL8elxuh8DZE"}
-    three_result = call_three_api(data)
+    three_result = call_three_api(data, id)
 
     begin
       if three_result
@@ -30,28 +30,10 @@ class ThreeJob < ApplicationJob
   
   private
 
-  def call_three_api(data)
+  def call_three_api(data, id)
     p ".............in to call three api.................."
-    p data, '|'
-    # uri = "http://120.224.26.32:47107"
-
-    # uri = "http://120.224.26.32:52313"
-    uri = "http://120.224.26.32:13465"
-    # conn = Faraday.new(
-    #   url: uri, 
-    #   params: data, 
-    #   headers: {
-    #     'Content-type' => 'application/json', 
-    #     'Content-length' => data.to_json.length.to_s,
-    #     'Accept-Encoding' => 'identity'
-    #   },
-    #   request: {timeout: 1000, open_timeout: 5}
-    # )
-    # p conn, '================'
-
-    # response = conn.post()
-
-    # uri = "http://localhost:3000"
+    
+    uri = "http://120.224.26.32:11483"
     conn = Faraday.new(url: uri) do |faraday|
       faraday.request :json
       faraday.headers['Content-type'] = 'application/json'
@@ -60,33 +42,18 @@ class ThreeJob < ApplicationJob
       faraday.options[:timeout] = 1000
       faraday.options[:open_timeout] = 5
     end
-
-    p conn, '==============='
-
-    response = conn.post('/', data) # 将"data"作为请求体发送
-
-    p response.status, response.body,'==============='
-
-    # host = '120.224.26.32'
-    # port = 52313
-    # uri = URI("http://#{host}:#{port}/")
-    # req = Net::HTTP::Post.new(uri.path)
-    # req.content_type = 'application/json'
-    # req.content_length = data.to_json.length
-    # req.body = data.to_json
+    response = conn.post('/', data)
     
-    # http = Net::HTTP.new(uri.host, uri.port)
-    # http.open_timeout = 1000
-    # http.read_timeout = 1000
-    # p http, '...'
-    # result = http.request(req)
-    # p result.body, '..........................'
-    
-
     begin
-      raise "HTTP request failed: #{JSON.parse(response.body)['message']}" unless response.status >= 200 && response.status < 300
+    p response.status, '==============='
+      # raise "HTTP request failed: #{JSON.parse(response.body)['message']}" unless response.status >= 200 && response.status < 300
       result = JSON.parse(response.body)
-      logger.info ".......... #{result} ............"
+      logger.info ".......... into begin ............"
+      logger.info "==== #{print_keys(result)} ===="
+
+      save_tar(id, result)
+
+      return false
 
       raise "API response error: #{result['message']}" unless result["status"] == "1"
       
@@ -105,7 +72,27 @@ class ThreeJob < ApplicationJob
     logger.info "... in to build api data..."
     content = []
     content << {name: "SubmitDraftModelGenerationTask", prompt: order.prompt} if order.prompt.present?
-    content << {name: "imgtask", image: order.image} if order.image.attached?
+    if order.image.attached?
+      base64_data = Base64.encode64(order.image.blob.download)
+      content << {name: "imgtask", image: base64_data}
+    end
     content.first.merge(taskId: "image_#{order.id}", API_Key:)
   end
+
+  def print_keys(hash, prefix = '')
+    hash.each_key do |key|
+      puts "#{prefix}#{key}"
+      if hash[key].is_a?(Hash)
+        print_keys(hash[key], "#{prefix}#{key}.")
+      end
+    end
+  end
+
+  def save_tar(id, response)
+    p '... into save ...'
+    File.open(Rails.root.join("public", "order", "image_#{id}.tar.gz"), "w") do |file|
+      file.write(response.body)
+    end
+  end
+
 end

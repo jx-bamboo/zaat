@@ -11,10 +11,10 @@
                 <div class="w-100 border-0 py-3 d-flex justify-content-between align-items-center">
                   <div>Upload your files</div>
                   <!-- <%= bootstrap_icon "chevron-down", width: 24, height: 24 %> -->
-                  <div class="nav" data-controller="clear">
+                  <a class="icon-link text-decoration-none" href="javascript:void(0)" data-controller="clear">
                     <%= image_tag "erase.svg", width: 14 %>
-                    <input type="reset" value="Remove all" class="border-0 bg-transparent text-light" data-action="click->clear#clear" />
-                  </div>
+                    <input type="reset" value="Remove" class="border-0 bg-transparent text-light" data-action="click->clear#clear" />
+                  </a>
                 </div>
               </h2>
               <div >
