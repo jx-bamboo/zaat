@@ -22,7 +22,7 @@
                   <div class="mb-3 position-relative">
                     <div class="text-center border border-dark py-3" style="height: 200px;">
                       <%= image_tag "add.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
-                      <%= f.file_field :file, class: "form-control preview-file", accept: "image/*", onclick: "uploadImg('order_file','preview')", alt: "Upload", title: "Upload" %>
+                      <%= f.file_field :model, class: "form-control preview-file", accept: "/*", onclick: "uploadImg('order_file','preview')", alt: "Upload", title: "Upload" %>
                     </div>
                     <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.</div>
                   </div>

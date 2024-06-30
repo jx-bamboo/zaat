@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :drafts
   post "test" => "home#test", :as => "test"
 
   require 'sidekiq/web'

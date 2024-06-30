@@ -14,4 +14,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def is_image_content_type?(content_type)
+    content_type =~ %r{^(image/(?:jpeg|pjpeg|png|gif|tiff|bmp|heif|webp|avif|svg\+xml))$}
+  end  
 end

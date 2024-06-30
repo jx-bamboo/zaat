@@ -1,0 +1,43 @@
+<%= form_with(model: draft, html: {class: "order_form"}) do |f| %>
+  <% if draft.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(draft.errors.count, "error") %> prohibited this draft from being saved:</h2>
+
+      <ul>
+        <% draft.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bg-transparent border-0">
+    <h2 class="fs0875">
+      <div class="w-100 border-0 py-3 d-flex justify-content-between align-items-center">
+        <div>Upload your files</div>
+        <!-- <%= bootstrap_icon "chevron-down", width: 24, height: 24 %> -->
+        <a class="icon-link text-decoration-none" href="javascript:void(0)" data-controller="clear">
+          <%#= image_tag "erase.svg", width: 14 %>
+          <!-- <input type="reset" value="Remove" class="border-0 bg-transparent text-light" data-action="click->clear#clear" /> -->
+        </a>
+      </div>
+    </h2>
+    <div >
+      <div class="accordion-body mx-0 px-0 mb-3">
+        <div class="mb-3 position-relative">
+          <div class="text-center border border-dark py-3" style="height: 200px;">
+            <%= image_tag "add.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
+            <%#= f.file_field :model, class: "form-control preview-file", accept: "/*", onclick: "uploadImg('draft_model','preview')", alt: "Upload", title: "Upload" %>
+            <%= f.file_field :model, class: "form-control preview-file opacity-1", accept: "/*", alt: "Upload", title: "Upload" %>
+          </div>
+          <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.</div>
+        </div>
+        <%= javascript_include_tag "preview_img", "data-turbo-track": "reload" %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= f.submit "Submit & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+  </div>
+<% end %>

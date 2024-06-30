@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :token, dependent: :destroy
   has_many :token_changes, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :drafts, dependent: :destroy
   
   # validates :email, uniqueness: { scope: :address }
   validates :address, uniqueness: true

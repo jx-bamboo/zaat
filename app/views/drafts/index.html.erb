@@ -1,0 +1,63 @@
+<div class="home">
+  <%= render "layouts/header" %>
+  <div class="container">
+    <div class="row text-light">
+      <div class="col-sm-12">
+        <div class="profile_border p-2 p-sm-4 rounded mb-5">
+          <!-- <div class="h4 mb-3">My 3D Models</div> -->
+          <nav class="mb-4 d-flex">
+            <%= link_to "All", "/profile/my_model", class: "text-decoration-none text-secondary h5" %>
+            <%= link_to "Minted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
+            <%= link_to "Unminted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
+            <%= link_to "Earn", "#", class: "text-decoration-none text-light h5 ms-4" %>
+            <%= link_to "/drafts/new", data: {"turbo-prefetch": false}, class: "text-decoration-none text-light h5 ms-auto bg_gradient padding1 rounded-3" do %>
+              <div class="bg-dark rounded-3 p-2 p_v_btn">
+                <span class="">New</span>
+              </div>
+            <% end %>
+          </nav>
+          <div class="row row-cols-auto row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
+            
+            <% @drafts.each do |order| %>
+              <div class="col">
+                <div class="h-100 rounded profile_border position-relative">
+                  <%= link_to "#", data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
+                    <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#modelShow">
+                      
+                      <% if is_image_content_type? order.model.content_type %>
+                        <%= image_tag url_for(order.model.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill", alt: "Model", title: "Model" %>
+                      <% else %>
+                        <%= image_tag "logo154.svg" %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <div class="p-2">
+                    <div><%= order.model.content_type %></div>
+                    <div><%= time_ago_in_words order.created_at %></div>
+                    <div class="text-warning fw-bold">+1000 Token</div>
+                  </div>
+                  
+                  <% if order.status == 0 %>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg_gradient">
+                      pending
+                      <span class="visually-hidden"></span>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="mt-2 py-4 text-center">
+            <%#= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+              <!-- More &nbsp;<%#= image_tag "to_right.svg" %> -->
+            <%# end %>
+          </div>
+
+        </div>
+          
+      </div>
+      
+    </div>
+  </div>
+</div>
