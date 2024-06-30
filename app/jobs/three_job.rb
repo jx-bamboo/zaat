@@ -2,6 +2,7 @@ class ThreeJob < ApplicationJob
   queue_as :three_model
 
   API_Key = "tsk_ar0lW2-VK1Njosnh0dnYpbfb3NlvudczL8elxuh8DZE"
+  URI = "http://120.224.26.32:11483"
 
   def perform(id)
     logger.info '... into three job ...'
@@ -10,14 +11,34 @@ class ThreeJob < ApplicationJob
     return false unless order && order.status == "success_one"
     
     data = build_api_data(order)
-    # {:name=>"SubmitDraftModelGenerationTask", :prompt=>"aaa", :taskId=>27, :API_Key=>"tsk_ar0lW2-VK1Njosnh0dnYpbfb3NlvudczL8elxuh8DZE"}
-    three_result = call_three_api(data, id)
+    response_body = call_three_api(data, id)
 
     begin
-      if three_result
+      if response_body
         logger.info "... deal result ..."
         order.update(status: 2)
-        # 处理返回的结果
+        # ==== 处理返回的结果 start ====
+
+        ## 保存文件到public/order
+        FileUtils.mkdir_p("public/order") unless File.directory?("public/order")
+        File.open(Rails.root.join("public", "order", "order_#{order.id}.tar.gz"), 'wb') do |f|
+          tar_file = Base64.decode64(response_body)
+          f.write(tar_file)
+        end
+
+        ## 解压文件
+        Dir.chdir(Rails.root.join("public", "order")) do
+          system("tar -xzf order_#{order.id}.tar.gz")
+        end
+
+        ## 删除原文件
+        FileUtils.rm(Rails.root.join("public", "order", "order_#{order.id}.tar.gz"))
+
+        ## 列出原文件
+        files_path = Dir.glob(Rails.root.join("public/order/order_#{order.id}", "*"))
+        logger.info "files_path: #{files_path}"
+
+        # ==== 处理返回的结果 end ====
       else
         raise 'API returned unsuccessful or unexpected data.'
       end
@@ -33,8 +54,7 @@ class ThreeJob < ApplicationJob
   def call_three_api(data, id)
     p ".............in to call three api.................."
     
-    uri = "http://120.224.26.32:11483"
-    conn = Faraday.new(url: uri) do |faraday|
+    conn = Faraday.new(url: URI) do |faraday|
       faraday.request :json
       faraday.headers['Content-type'] = 'application/json'
       faraday.headers['Accept-Encoding'] = 'identity'
@@ -43,21 +63,11 @@ class ThreeJob < ApplicationJob
       faraday.options[:open_timeout] = 5
     end
     response = conn.post('/', data)
+    response_body = response.body.force_encoding('UTF-8')
     
     begin
-    p response.status, '==============='
-      # raise "HTTP request failed: #{JSON.parse(response.body)['message']}" unless response.status >= 200 && response.status < 300
-      result = JSON.parse(response.body)
-      logger.info ".......... into begin ............"
-      logger.info "==== #{print_keys(result)} ===="
-
-      save_tar(id, result)
-
-      return false
-
-      raise "API response error: #{result['message']}" unless result["status"] == "1"
-      
-      true
+      raise "API response error: #{result['message']}" unless response_body
+      response_body
     rescue JSON::ParserError => e
       logger.error "JSON error: #{e.message}"
       false
@@ -76,7 +86,7 @@ class ThreeJob < ApplicationJob
       base64_data = Base64.encode64(order.image.blob.download)
       content << {name: "imgtask", image: base64_data}
     end
-    content.first.merge(taskId: "image_#{order.id}", API_Key:)
+    content.first.merge(taskId: "order_#{order.id}", API_Key:)
   end
 
   def print_keys(hash, prefix = '')
@@ -88,10 +98,10 @@ class ThreeJob < ApplicationJob
     end
   end
 
-  def save_tar(id, response)
+  def save_tar(id, res_body)
     p '... into save ...'
     File.open(Rails.root.join("public", "order", "image_#{id}.tar.gz"), "w") do |file|
-      file.write(response.body)
+      file.write(res_body)
     end
   end
 
