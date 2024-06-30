@@ -28,6 +28,7 @@ Trestle.resource(:users) do
     column :id
     column :email
     column :address
+    column :invitation_code
     column :role
     column :current_sign_in_ip
     column :last_sign_in_ip
@@ -39,6 +40,8 @@ Trestle.resource(:users) do
   #
   form do |user|
     text_field :email
+    text_field :address
+    text_field :invitation_code
   
     row do
       col(sm: 3) { datetime_field :updated_at }
