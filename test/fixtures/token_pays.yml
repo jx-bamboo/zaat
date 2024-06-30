@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chain: MyString
+  toekn_name: MyString
+  contract_address: MyString
+  contract_abi: MyText
+  receive: MyString
+  price: 9.99
+
+two:
+  chain: MyString
+  toekn_name: MyString
+  contract_address: MyString
+  contract_abi: MyText
+  receive: MyString
+  price: 9.99

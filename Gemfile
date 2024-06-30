@@ -53,3 +53,6 @@ gem "hotwire_scaffold_generator"
 gem "sidekiq"
 gem "faraday"
 gem 'faraday-excon'
+gem "trestle"
+# gem "trestle-auth"
+gem 'trestle-search'
