@@ -1,0 +1,31 @@
+<div class="col-sm-12 mt-4 my-5 pb-5">
+  <div class="profile_border p-2 p-sm-4 rounded">
+    <div class="h4 mb-3">Records</div>
+
+    <div class="row g-4">
+      <% @token_changes.each do |token| %>
+        <div class="col-sm-12">
+          <div class="p-3 nav navbar rounded-3 profile_border">
+            <div>
+              <div class="h6"><%= token.amount %></div>
+              <div><%= time_ago_in_words token.created_at %></div>
+            </div>
+            <div class="bg_gradient padding1 rounded-pill">
+              <div class="bg-dark rounded-pill p-2"><%= token.event %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      
+
+    </div>
+
+    <div class="mt-2 py-4 text-center">
+      <%#= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
+        <!-- More &nbsp;<%#= image_tag "to_right.svg" %> -->
+      <%# end %>
+    </div>
+    
+  </div>
+  
+</div>

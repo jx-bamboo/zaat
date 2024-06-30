@@ -1,0 +1,39 @@
+<div class="home">
+  <%= render "layouts/header" %>
+  <div class="container">
+    <div class="row text-light">
+      <div class="col-sm-12">
+        <div class="profile_border p-2 p-sm-4 rounded">
+          <div class="row row-cols-auto justify-content-between px-auto">
+            <div class="col d-flex mb-3 mx-auto mx-sm-0">
+              <div class=""><%= image_tag "logo154.svg", width: 90 %></div>
+              <div class="px-3 d-flex flex-column justify-content-center">
+                <div class="h5">
+                  <% if current_user.email.end_with?('@address.zaat') %>
+                    <span class="text-secondary">example@email.com</span>
+                  <% else %>
+                    <%= current_user.email %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= link_to "javascript:void(0)", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false", controller: "clipboard", action: "clipboard#copy"} do %>
+                  <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: current_user.invitation_code %>
+                    <div class="bg-dark rounded-3 p-2">
+                      <span class="">Code: <span class="fw-bold"><%= current_user.invitation_code %></span></span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col d-flex flex-column justify-content-center mx-auto mx-sm-0">
+              <div>Total Token</div>
+              <div class="text-warning fw-bold h4 mt-2"><%= @total_token %>($ Calculating...)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render "token/records" %>
+    </div>
+  </div>
+</div>

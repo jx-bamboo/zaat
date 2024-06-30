@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "token/index" => "token#index"
   resources :drafts
   post "test" => "home#test", :as => "test"
 
