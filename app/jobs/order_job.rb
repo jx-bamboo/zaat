@@ -10,6 +10,7 @@ class OrderJob < ApplicationJob
     begin
       if call_bsc_api(txhash)
         order.update(status: 1)
+        add_token(id)
         ThreeJob.perform_later(order.id)
       else
         raise 'API returned unsuccessful or unexpected data.'
@@ -44,16 +45,15 @@ class OrderJob < ApplicationJob
   end
 
   def add_token(u_id)
-    user = User.find_by(u_id)
+    user = User.find_by(id: u_id)
     user.transaction do
       if user.token.nil?
         token = user.create_token(balance: 1000)
       else
         token = user.token.increment(:balance, 1000)
       end
-      user.token_changes.create(amount: 1000, event: 'metamaskpay', token_id: token.id)
+      user.token_changes.create(amount: 1000, event: 'metamask pay', token_id: token.id)
     end
-
   end
 
 end

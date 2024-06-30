@@ -47,7 +47,7 @@
                   <div class="p-2">
                     <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>
                   </div>
-                  <% if order.status == 0 %>
+                  <% if order.status == "pending" %>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg_gradient">
                       pending
                       <span class="visually-hidden"></span>

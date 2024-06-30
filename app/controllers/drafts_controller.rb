@@ -25,7 +25,7 @@ class DraftsController < ApplicationController
 
     respond_to do |format|
       if @draft.save
-        add_token(1000, "upload_to_earn", current_user.id)
+        add_token(1000, "upload to earn", current_user.id)
         format.html { redirect_to draft_url(@draft), notice: "Draft was successfully created." }
         format.json { render :show, status: :created, location: @draft }
       else
