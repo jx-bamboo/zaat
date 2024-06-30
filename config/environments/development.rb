@@ -85,5 +85,5 @@ Rails.application.configure do
 		 :password       => Rails.application.credentials.dig(:mail, :password)
 	}
 
-  config.hosts = ["localhost:3000", "www.zaat.xyz"]
+  config.hosts = [".*"]
 end

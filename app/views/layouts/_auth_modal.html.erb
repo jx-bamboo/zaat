@@ -16,8 +16,8 @@
             </div>
           <% end %>
         </div>
-        <div class="col-sm-6 mb-3">
-          <%= link_to "www.baidu.com", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill" do %>
+        <div class="col-sm-6 mb-3" data-controller="metamasklogin">
+          <%= link_to "javascript:void(0)", data: {action: "metamasklogin#login"}, class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-pill" do %>
             <div class="d-flex justify-content-center bg-dark rounded-pill py-3">
               <%= image_tag "metamask.png", width: 24 %>
               <span class="ps-2">Metamask</span>
