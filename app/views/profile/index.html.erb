@@ -28,7 +28,7 @@
 
             <div class="col d-flex flex-column justify-content-center mx-auto mx-sm-0">
               <div>Total Token</div>
-              <div class="text-warning fw-bold h4 mt-2"><%= @total_token %>($ Calculating...)</div>
+              <div class="text-warning fw-bold h4 mt-2"><%= @total_token || "0.0" %>($ Calculating...)</div>
             </div>
           </div>
           <hr class="mt-2 border border-secondary">
