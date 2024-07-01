@@ -13,8 +13,19 @@ class User < ApplicationRecord
   
   # validates :email, uniqueness: { scope: :address }
   validates :address, uniqueness: true
+  enum role: [:user, :admin]
 
   before_create :generate_invitation_code
+
+  def email
+    local_email = read_attribute(:email)
+    local_email.include?("@address.zaat") ? nil : local_email
+  end
+
+  def address
+    local_address = read_attribute(:address)
+    local_address.include?("zaat_") ? nil : local_address
+  end
 
   private 
   

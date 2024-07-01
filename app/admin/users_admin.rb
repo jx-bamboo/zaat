@@ -1,7 +1,7 @@
 Trestle.resource(:users) do
   menu do
     item '返回主系统', '/', icon: 'fa fa-arrow-left', priority: :first
-    item :users, icon: "fa fa-user"
+    item "用户管理", icon: "fa fa-user"
   end
 
   scope :all, default: true
@@ -30,8 +30,7 @@ Trestle.resource(:users) do
     column :address
     column :invitation_code
     column :role
-    column :current_sign_in_ip
-    column :last_sign_in_ip
+    column :confirmed_at
     column :created_at, align: :center
     actions
   end
@@ -42,6 +41,8 @@ Trestle.resource(:users) do
     text_field :email
     text_field :address
     text_field :invitation_code
+    text_field :role
+    text_field :confirmed_at
   
     row do
       col(sm: 3) { datetime_field :updated_at }
