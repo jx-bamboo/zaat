@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   before_create :generate_invitation_code
 
-  def email
+  def format_email
     local_email = read_attribute(:email)
     local_email.include?("@address.zaat") ? nil : local_email
   end

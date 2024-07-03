@@ -1,0 +1,69 @@
+<%= turbo_frame_tag "verify" do %>
+  <div class="flash"><%= render "layouts/flash_message" %></div>
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 text-center d-flex justify-content-between">
+
+    <div class="col py-2 ">
+      <% if is_verified_user(current_user.id) %>
+        <div class="text-decoration-none text-light d-block padding1 rounded-3">
+          <div class="bg-dark rounded-3 p-2 p_v_btn">
+            <span class="">Code Verified</span>
+          </div>
+        </div>
+        <span class="text-secondary">+1000 Token</span>
+      <% else %>
+        <%= link_to "/profile/verify_invite_code", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+          <div class="bg-dark rounded-3 p-2 p_v_btn">
+            <span class="">Add invite code</span>
+          </div>
+        <% end %>
+        <span class="text-secondary">+1000 Token</span>
+      <% end %>
+    </div>
+
+    <div class="col py-2">
+      <% if is_verified_email(current_user) %>
+        <div class="text-decoration-none text-light d-block bg_gradient padding1 rounded-3">
+          <div class="bg-dark rounded-3 p-2 p_v_btn">
+            <span class="">Email Verified</span>
+          </div>
+        </div>
+        <span class="text-secondary">+1000 Token</span>
+      <% else %>
+        <%= link_to "/profile/verify_email", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+          <div class="bg-dark rounded-3 p-2 p_v_btn">
+            <span class="">Verify Email</span>
+          </div>
+        <% end %>
+        <span class="text-secondary">+1000 Token</span>
+      <% end %>
+    </div>
+
+    <div class="col py-2">
+      <%= link_to "javascript:alert('coming soon...')", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+        <div class="bg-dark rounded-3 p-2 p_v_btn">
+          <span class="">Verify Twitter</span>
+        </div>
+      <% end %>
+      <span class="text-secondary">+1000 Token</span>
+    </div>
+
+    <div class="col py-2">
+      <%= link_to "javascript:alert('coming soon...')", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+        <div class="bg-dark rounded-3 p-2 p_v_btn">
+          <span class="">Verify Telegram</span>
+        </div>
+      <% end %>
+      <span class="text-secondary">+1000 Token</span>
+    </div>
+
+    <div class="col py-2">
+      <%= link_to "javascript:alert('coming soon...')", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
+        <div class="bg-dark rounded-3 p-2 p_v_btn">
+          <span class="">Verify Discord</span>
+        </div>
+      <% end %>
+      <span class="text-secondary">+1000 Token</span>
+    </div>
+
+  </div>
+<% end %>

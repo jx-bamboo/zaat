@@ -25,61 +25,15 @@
                 </div>
               </div>
             </div>
-
             <div class="col d-flex flex-column justify-content-center mx-auto mx-sm-0">
-              <div>Total Token</div>
+              <div>xToken</div>
               <div class="text-warning fw-bold h4 mt-2"><%= @total_token || "0.0" %>($ Calculating...)</div>
             </div>
           </div>
+
           <hr class="mt-2 border border-secondary">
-          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 text-center d-flex justify-content-between">
-
-            <div class="col py-2 ">
-              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
-                <div class="bg-dark rounded-3 p-2 p_v_btn">
-                  <span class="">Add invite code</span>
-                </div>
-              <% end %>
-              <span class="text-secondary">+1000 Token</span>
-            </div>
-
-            <div class="col py-2">
-              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
-                <div class="bg-dark rounded-3 p-2 p_v_btn">
-                  <span class="">Verify Twitter</span>
-                </div>
-              <% end %>
-              <span class="text-secondary">+1000 Token</span>
-            </div>
-
-            <div class="col py-2">
-              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
-                <div class="bg-dark rounded-3 p-2 p_v_btn">
-                  <span class="">Verify Telegram</span>
-                </div>
-              <% end %>
-              <span class="text-secondary">+1000 Token</span>
-            </div>
-
-            <div class="col py-2">
-              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
-                <div class="bg-dark rounded-3 p-2 p_v_btn">
-                  <span class="">Verify Discord</span>
-                </div>
-              <% end %>
-              <span class="text-secondary">+1000 Token</span>
-            </div>
-
-            <div class="col py-2">
-              <%= link_to "#", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false"} do %>
-                <div class="bg-dark rounded-3 p-2 p_v_btn">
-                  <span class="">Verify Email</span>
-                </div>
-              <% end %>
-              <span class="text-secondary">+1000 Token</span>
-            </div>
-
-          </div>
+          
+          <%= render "profile/verify" %>
         </div>
       </div>
       <%= render "profile/task" %>

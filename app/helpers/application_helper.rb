@@ -18,4 +18,22 @@ module ApplicationHelper
   def is_image_content_type?(content_type)
     content_type =~ %r{^(image/(?:jpeg|pjpeg|png|gif|tiff|bmp|heif|webp|avif|svg\+xml))$}
   end  
+
+  def is_verified_user(my_user_id)
+    invited = InvitedUser.find_by(my_user_id:)
+    invited ? true : false
+  end
+
+  def is_verified_email(current_user)
+    p current_user, '...............'
+    p current_user.email, '|'
+    p current_user.confirmed_at,'....'
+    email = current_user.email
+
+    if email.present? && email.end_with?("@address.zaat") && current_user.confirmed_at.present?
+      return false
+    elsif email.present? && current_user.confirmed_at.nil?
+      return false
+    end
+  end
 end

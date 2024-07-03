@@ -1,4 +1,6 @@
-<%= form_with(model: draft, html: {class: "order_form"}) do |f| %>
+<%= form_with(model: draft, html: {class: "order_form", id: "earn_form"}) do |f| %>
+  <%= f.hidden_field :txhash %>
+
   <% if draft.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(draft.errors.count, "error") %> prohibited this draft from being saved:</h2>
@@ -17,27 +19,71 @@
         <div>Upload your files</div>
         <!-- <%= bootstrap_icon "chevron-down", width: 24, height: 24 %> -->
         <a class="icon-link text-decoration-none" href="javascript:void(0)" data-controller="clear">
-          <%#= image_tag "erase.svg", width: 14 %>
-          <!-- <input type="reset" value="Remove" class="border-0 bg-transparent text-light" data-action="click->clear#clear" /> -->
+          <%= image_tag "erase.svg", width: 14 %>
+          <input type="reset" value="Remove all" id="clear-files" class="border-0 bg-transparent text-light" data-action="click->clear#clear" />
         </a>
       </div>
     </h2>
     <div >
       <div class="accordion-body mx-0 px-0 mb-3">
         <div class="mb-3 position-relative">
-          <div class="text-center border border-dark py-3" style="height: 200px;">
-            <%= image_tag "add.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
-            <%#= f.file_field :model, class: "form-control preview-file", accept: "/*", onclick: "uploadImg('draft_model','preview')", alt: "Upload", title: "Upload" %>
-            <%= f.file_field :model, class: "form-control preview-file opacity-1", accept: "/*", alt: "Upload", title: "Upload" %>
+          <div class="text-center border border-d border-dark py-3" style="height: 200px;">
+            <%= f.file_field :model_file, class: "form-control preview-file opacity-1", accept: "/*", multiple: true, required: "required" %>
+            <div id="preview" class="text-start h-100 w-100 d-flex align-items-center justify-content-center">
+              <div class="text-center text-light" id="error">
+                <%= image_tag "add.svg", class: "rounded shadow", alt: "CAKEBABA", title: "CAKEBABA" %>
+              </div>
+            </div>
           </div>
           <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.</div>
         </div>
-        <%= javascript_include_tag "preview_img", "data-turbo-track": "reload" %>
       </div>
     </div>
   </div>
 
   <div>
-    <%= f.submit "Submit & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+    <%#= f.submit "Submit & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
+    <div class="mb-3 text-secondary nav navbar">xToken Rewards Service Fee <span class="token_c">1000</span></div>
+    <input type="button" class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" id="earn_btn" value="Earn & Pay" />
   </div>
 <% end %>
+<script src="https://unpkg.com/web3@4.10.0/dist/web3.min.js"></script>
+<%= javascript_include_tag "earn_pay", "data-turbo-track": "reload" %>
+
+<script>
+  document.getElementById('draft_model_file').addEventListener('change', function(e) {
+    var files = e.target.files;
+    var fileNamesDiv = document.getElementById('preview');
+    var maxFiles = 5; // 设定最大文件数量
+
+    // 清除当前显示的文件名
+    fileNamesDiv.innerHTML = '';
+
+    // 如果选择的文件数量超过最大限制，则弹出警告并停止后续处理
+    if (files.length > maxFiles) {
+      alert('您最多只能选择' + maxFiles + '个文件。');
+      // 这里我们无法直接清除文件输入的值，因为它可能不受支持
+      // 可以通过设置input的value为''尝试（但这在某些浏览器中不起作用）
+      // e.target.value = ''; // 这可能不起作用
+      return; // 停止后续处理
+    }
+
+    // 如果文件数量没有超过限制，则继续处理
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var fileName = file.name;
+      fileNamesDiv.innerHTML += fileName + '<br>';
+    }
+  });
+
+  document.getElementById('clear-files').addEventListener('click', function() {
+    var fileInput = document.getElementById('draft_model_file');
+    // 尝试清除文件输入的值（在大多数浏览器中这不会工作）
+    // 但它可以重置到没有选择文件的状态
+    fileInput.value = '';
+    
+    // 同时清除预览区域
+    var fileNamesDiv = document.getElementById('preview');
+    fileNamesDiv.innerHTML = '';
+});
+</script>

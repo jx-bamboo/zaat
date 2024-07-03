@@ -24,7 +24,7 @@
               </button>
             <% else %>
               <button class="border-0 text-bg-dark rounded-pill p-0">
-                <span class="px-1"><%= current_user.address %></span>
+                <span class="px-1"><%= simple_address current_user.address %></span>
               </button>
             <% end %>
             

@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "verify" do %>
+  <div class="flash"><%= render "layouts/flash_message" %></div>
+  <div class="bg-black p-4 rounded-3">
+    <form action="/profile/verify_invite_code" method="post">
+      <div class="mb-3">
+        <label for="" class="form-label h4">Invitation code</label>
+        <input type="text" class="form-control bg-dark border-0 v-input text-light" name="code" placeholder="Eg: 605708cc" required aria-describedby="textHelp">
+        <div id="textHelp" class="form-text text-secondary">Who invited you? Fill in whose invitation code.</div>
+      </div>
+      <button type="submit" class="btn text-light bg_gradient border-0">Submit</button>
+      <a href="/profile/verify_cancel" data-turbo-prefetch="false" class="btn text-light bg-dark border-0">Cancel</a>
+    </form>
+  </div>
+<% end %>

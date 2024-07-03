@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  get 'profile/index'
-  get 'profile/my_model'
+  get "profile/index"
+  get "profile/my_model"
+  match "profile/verify_invite_code", via: %i[get post]
+  get "profile/verify_cancel"
+  match "profile/verify_email", via: %i[get post]
 
   resources :order do
     collection do

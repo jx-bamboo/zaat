@@ -40,9 +40,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_110931) do
   end
 
   create_table "drafts", force: :cascade do |t|
+    t.string "txhash"
     t.string "prompt"
     t.text "image"
-    t.text "model"
+    t.text "model_file"
     t.integer "status", default: 0, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -51,6 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_110931) do
   end
 
   create_table "invited_users", force: :cascade do |t|
+    t.integer "my_user_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

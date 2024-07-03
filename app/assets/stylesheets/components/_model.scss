@@ -4,7 +4,7 @@
   border-radius: 10px;
 }
 
-#order_prompt::placeholder {
+#order_prompt::placeholder, .v-input::placeholder {
   color: #666;
   opacity: 1;
 }

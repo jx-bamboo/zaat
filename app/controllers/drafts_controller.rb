@@ -21,10 +21,13 @@ class DraftsController < ApplicationController
 
   # POST /drafts or /drafts.json
   def create
+    p params, "..."
     @draft = Draft.new(draft_params)
 
     respond_to do |format|
       if @draft.save
+        # EarnJob.perform_later(@draft.id, @draft.txhash, @draft.status)
+
         add_token(1000, "upload to earn", current_user.id)
         format.html { redirect_to draft_url(@draft), notice: "Draft was successfully created." }
         format.json { render :show, status: :created, location: @draft }
@@ -66,6 +69,6 @@ class DraftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def draft_params
-      params.require(:draft).permit(:prompt, :image, :model).merge(user_id: current_user.id)
+      params.require(:draft).permit(:txhash, :prompt, :image, model_file: []).merge(user_id: current_user.id)
     end
 end

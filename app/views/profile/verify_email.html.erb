@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "verify" do %>
+  <div class="flash"><%= render "layouts/flash_message" %></div>
+  <div class="bg-black p-4 rounded-3">
+    <div class="h4">Verify email</div>
+    
+    <% if current_user.email.end_with?("@address.zaat") && current_user.unconfirmed_email.nil? %>
+      <form action="/profile/verify_email" method="post">
+        <div class="mb-3">
+          <input type="email" class="form-control bg-dark border-0 v-input text-light" name="email" placeholder="Eg: example@zaat.io" required aria-describedby="textHelp">
+          <div id="textHelp" class="form-text text-secondary"></div>
+        </div>
+        <button type="submit" class="btn text-light bg_gradient border-0">Submit</button>
+        <a href="/profile/verify_cancel" data-turbo-prefetch="false" class="btn text-light bg-dark border-0">Cancel</a>
+      </form>
+    <% elsif current_user.email.present? && current_user.confirmed_at.nil? %>
+      <div class="alert bg-dark" role="alert">
+        Email not confirmed. You can confirm your email address by going to the mailbox.
+      </div>
+      <a href="/profile/verify_cancel" data-turbo-prefetch="false" class="btn text-light bg-dark border-0">Cancel</a>
+    <% end %>
+  </div>
+<% end %>
