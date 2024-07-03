@@ -1,4 +1,5 @@
 :queues:
+  - default
   - metamask_pay
   - three_model
   - earn_pay

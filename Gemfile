@@ -52,7 +52,8 @@ gem "hotwire_scaffold_generator"
 # gem "siwe"
 gem "sidekiq"
 gem "faraday"
-gem 'faraday-excon'
+gem "faraday-excon"
 gem "trestle"
 # gem "trestle-auth"
-gem 'trestle-search'
+gem "trestle-search"
+gem "trestle-active_storage", git: "https://github.com/K4sku/trestle-active_storage.git", ref: "282e570"

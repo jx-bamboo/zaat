@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/K4sku/trestle-active_storage.git
+  revision: 282e570ead8b937b19adb0f610db7674a793dd0f
+  ref: 282e570
+  specs:
+    trestle-active_storage (3.1.0)
+      rails (>= 6, < 8)
+      trestle (~> 0.9, >= 0.9.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -425,6 +434,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   trestle
+  trestle-active_storage!
   trestle-search
   turbo-rails
   turbo_flash

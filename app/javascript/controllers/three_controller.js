@@ -13,6 +13,9 @@ export default class extends Controller {
 
   connect() {
     console.log("---- three ----")
+    const paramValue = this.data.get('orderid')
+    console.log(paramValue);
+    console.log("===");
     const parentDiv = document.getElementById("three");
     const model_bg = document.getElementById("model_bg");
 
@@ -65,7 +68,12 @@ export default class extends Controller {
     mmodel.appendChild(loadingText);
 
     this.loader = new GLTFLoader();
-    const imagePath = '/three/eiffel.glb';
+    var imagePath = '';
+    if (paramValue) {
+      imagePath = '/order/' + paramValue + '/result.glb';
+    } else {  
+      imagePath = '/three/eiffel.glb';
+    }
 
     this.loader.load(imagePath, (gltf) => {
       console.log('... loader ...');
