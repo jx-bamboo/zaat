@@ -10,7 +10,7 @@ class OrderJob < ApplicationJob
     begin
       if call_bsc_api(txhash)
         order.update(status: 1)
-        add_token(id)
+        add_token(order.user_id)
         ThreeJob.perform_later(order.id)
       else
         raise 'API returned unsuccessful or unexpected data.'

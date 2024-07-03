@@ -8,22 +8,19 @@ if (typeof window.ethereum !== "undefined") {
 
   buttonEthConnect.addEventListener("click", async () => {
     console.log("... Click the button ...")
-
     const model_file = form.elements["draft_model_file"]
-
-
 
     if(model_file && model_file.files && model_file.files.length > 0) {
       console.log('.. model_file ..')
-      // form.elements["order_txhash"].value = "0x285408ea433e25a123d9a1781370bea14698252177fd0f113693aeb78f83d7b7"
-
 
       // return false;
-      // const th = await requestTransferToken();
-      th = "0x285408ea433e25a123d9a1781370bea14698252177fd0f113693aeb78f83d7b7"
+      const th = await requestTransferToken();
+      // th = "0x285408ea433e25a123d9a1781370bea14698252177fd0f113693aeb78f83d7b7"
       if(th){
         form.elements["draft_txhash"].value = th
         form.submit()
+      }else{
+        alert("Empty txHash cannot continue.")
       }
     }  else {
       alert("Empty content cannot continue.")
@@ -81,14 +78,6 @@ async function checkBscNet() {
       console.error(error);
     }
   }
-}
-
-async function requestOrderPrompt(prompt, txHash) {
-  return fetch("/order/createorder/?order[prompt]=" + prompt + "&order[txHash]=" + txHash);
-}
-
-async function requestOrderImage(image, txHash) {
-  return fetch("/order/createorder/?order[image]=" + image + "&order[txHash]=" + txHash);
 }
 
 async function requestTransferToken(){
