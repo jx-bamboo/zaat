@@ -29,8 +29,8 @@ Trestle.resource(:users) do
     column :email
     column :address
     column :invitation_code
-    column :role
     column :confirmed_at
+    column :last_sign_in_at
     column :created_at, align: :center
     actions
   end
@@ -41,7 +41,6 @@ Trestle.resource(:users) do
     text_field :email
     text_field :address
     text_field :invitation_code
-    text_field :role
     text_field :confirmed_at
   
     row do
