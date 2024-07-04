@@ -22,7 +22,7 @@ class User < ApplicationRecord
     local_email.include?("@address.zaat") ? nil : local_email
   end
 
-  def address
+  def format_address
     local_address = read_attribute(:address)
     local_address.include?("zaat_") ? nil : local_address
   end

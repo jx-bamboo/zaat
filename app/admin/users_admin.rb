@@ -26,8 +26,8 @@ Trestle.resource(:users) do
   #
   table do
     column :id
-    column :email
-    column :address
+    column :format_email, header: "Email"
+    column :format_address, header: "Address"
     column :invitation_code
     column :confirmed_at
     column :last_sign_in_at
@@ -38,8 +38,8 @@ Trestle.resource(:users) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |user|
-    text_field :email
-    text_field :address
+    text_field :format_email
+    text_field :format_address
     text_field :invitation_code
     text_field :confirmed_at
   
