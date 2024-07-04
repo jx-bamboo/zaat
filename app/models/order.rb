@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 
   validates :txhash, presence: true
 
-  enum status: {pending: 0, success_one: 1, success_two: 2}
+  enum status: [:pending, :creating, :completed]
 
   scope :my_order_pendding, -> { where(status: 0).order(created_at: :desc).limit(3)}
 

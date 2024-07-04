@@ -9,9 +9,9 @@ class TestJob < ApplicationJob
     logger.info '... into test job ...'
 
     order = Order.find_by(id:)
-    logger.info "..... #{order.id}----------"
-    return false unless order && order.status == "success_one"
-    logger.info '.........................'
+    logger.info "... #{order.id} ..."
+    return false unless order && order.status == "creating"
+    
     data = build_api_data(order)
     response_body = call_three_api(data, id)
 
@@ -29,8 +29,34 @@ class TestJob < ApplicationJob
         end
 
         ## 解压文件
-        Dir.chdir(Rails.root.join("public", "order")) do
-          system("tar -xzf order_#{order.id}.tar.gz")
+        # Dir.chdir(Rails.root.join("public", "order")) do
+        #   system("tar -xzf order_#{order.id}.tar.gz")
+        # end
+
+        target_dir = Rails.root.join("public", "order")
+        archive_path = target_dir.join("order_#{order.id}.tar.gz")
+        # 检查并可能地重命名解压出的目录
+        Dir.chdir(target_dir.join('tmp')) do
+          entries = Dir.entries('.')
+          # 过滤出目录（排除'.'和'..'）
+          directories = entries.select { |entry| File.directory?(entry) && entry != '.' && entry != '..' }
+          
+          # 假设解压出的目录只有一个，且我们想要重命名它
+          if directories.length == 1
+            extracted_dir = directories.first
+            # 检查解压出的目录名是否已经是正确的格式
+            if !extracted_dir.match?(/^order_#{order.id}$/)
+              # 如果不是，则重命名它
+              new_dir_name = "order_#{order.id}"
+              FileUtils.mv(extracted_dir, new_dir_name)
+            end
+            
+            # 如果需要，将重命名后的目录移出tmp子目录到目标位置
+            FileUtils.mv(new_dir_name, "../#{new_dir_name}") unless new_dir_name == extracted_dir
+            
+            # 清理tmp子目录（如果它是空的）
+            FileUtils.rmdir('tmp') if Dir.empty?('tmp')
+          end
         end
 
         ## 删除原文件
@@ -72,7 +98,7 @@ class TestJob < ApplicationJob
     end
     response = conn.post('/', data)
     response_body = response.body.force_encoding('UTF-8')
-    p ".............response_body: #{response_body}........"
+    p ".............response_body: #{id}........"
     
     begin
       raise "API response error: #{result['message']}" unless response_body

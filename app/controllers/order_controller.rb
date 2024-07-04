@@ -1,29 +1,22 @@
 class OrderController < ApplicationController
   def show
-    p params, '..........'
     @order = Order.find(params[:id])
-    p @order, '--- --- ---'
     render turbo_stream: turbo_stream.replace("model_show", partial: "order/show", locals: {order: @order})
   end
 
   def new
     @order = Order.new
-    @my_order_pendding = current_user.orders.my_order_pendding 
-    p @my_order_pendding.size, '......'
+    @my_order_pendding = current_user.orders.my_order_pendding
   end
   
   def create
-    p params, '..............'
-
     order = Order.new(order_params)
-    
     if order.save
-      OrderJob.perform_later(order.id, order.txhash, order.status)
+      OrderJob.perform_later(order.id)
       redirect_to profile_my_model_path, notice: "Success"
     else
-      p "... no saved ..."
+      redirect_to new_order_path, notice: "Failed"
     end
-
   end
 
   def earn

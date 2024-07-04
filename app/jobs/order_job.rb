@@ -1,14 +1,12 @@
 class OrderJob < ApplicationJob
   queue_as :metamask_pay
 
-  def perform(id, txhash, status)
-    return false unless status == "pending"
-
+  def perform(id)
     order = Order.find_by(id:)
-    return false unless order
+    return false unless order && order.status == "pending"
 
     begin
-      if call_bsc_api(txhash)
+      if call_bsc_api(order.txhash)
         order.update(status: 1)
         add_token(order.user_id)
         ThreeJob.perform_later(order.id)
@@ -34,13 +32,13 @@ class OrderJob < ApplicationJob
       result = JSON.parse(response.body)
       raise "API response error: #{result['message']}" unless result["status"] == "1"
       
-      return true
+      true
     rescue JSON::ParserError => e
       logger.error "JSON error: #{e.message}"
-      return false
+      false
     rescue StandardError => e
       logger.error "API call error: #{e.message}"
-      return false
+      false
     end
   end
 

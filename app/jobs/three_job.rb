@@ -8,7 +8,7 @@ class ThreeJob < ApplicationJob
     logger.info '... into three job ...'
 
     order = Order.find_by(id:)
-    return false unless order && order.status == "success_one"
+    return false unless order && order.status == "creating"
     
     data = build_api_data(order)
     response_body = call_three_api(data, id)
