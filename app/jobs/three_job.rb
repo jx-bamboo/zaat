@@ -2,7 +2,8 @@ class ThreeJob < ApplicationJob
   queue_as :three_model
 
   API_Key = "tsk_ar0lW2-VK1Njosnh0dnYpbfb3NlvudczL8elxuh8DZE"
-  URI = "http://120.224.26.32:11483"
+  # URI = "http://120.224.26.32:11483"
+  URI = "http://120.224.26.32:42201"
 
   def perform(id)
     logger.info '... into three job ...'
