@@ -25,8 +25,10 @@ class EarnJob < ApplicationJob
   private
 
   def call_bsc_api(txhash)
-    bsc_key = "1M5JQRT1W4B4DYBBKTPYD1WMMHGIU9T8G9"
-    uri = "https://api-testnet.bscscan.com/api?module=account&action=txlistinternal&txhash=#{txhash}&apikey=#{bsc_key}"
+    # bsc_key = "1M5JQRT1W4B4DYBBKTPYD1WMMHGIU9T8G9"
+    bsc_key = "YourApiKeyToken"
+    uri = "https://api-testnet.bscscan.com/api?module=transaction&action=gettxreceiptstatus&txhash=#{txhash}&apikey=#{bsc_key}"
+
     response = Faraday.get(uri)
     
     begin

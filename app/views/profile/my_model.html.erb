@@ -36,7 +36,7 @@
                       <% if order.image.attached? %>
                         <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
                       <% else %>
-                        <% if order.status == "success_two" %>
+                        <% if order.status == "completed" %>
                           <img src="/order/order_<%= order.id %>/img_180.png" class="img-fluid" alt="ZAAT" title="ZAAT">
                         <% else %>
                           <div class="text-center text-light py-5 text-truncate">
