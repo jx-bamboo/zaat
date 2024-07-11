@@ -32,7 +32,7 @@
               <div class="col">
                 <div class="h-100 rounded profile_border position-relative">
                   <%= link_to order_path(order), data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
-                    <div class="text-center mouse-cursor-gradient-tracking" data-bs-toggle="modal" data-bs-target="#modelShow">
+                    <div class="text-center overflow-hidden s-model" data-bs-toggle="modal" data-bs-target="#modelShow">
                       <% if order.image.attached? %>
                         <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
                       <% else %>

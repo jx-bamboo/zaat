@@ -22,3 +22,11 @@
   font-family: Helvetica-Bold;
   color: #FFD06A;
 }
+
+.s-model img {
+  transition: transform 0.5s ease;
+}
+
+.s-model:hover img {
+  transform: scale(1.2);
+}
