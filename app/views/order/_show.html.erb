@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="d-flex justify-content-evenly py-4">
-    <button data-controller="download" data-action="download#get_model" data-download-url="<%= order.id%>" class="bg_gradient px-4 py-2 rounded-pill text-light border-0">Download</button>
+    <button id="d_model" data-controller="download" data-action="download#get_model" data-download-url="<%= order.id%>" class="bg_gradient px-4 py-2 rounded-pill text-light border-0">Download</button>
     <button class="bg_gradient px-4 py-2 rounded-pill text-light border-0" disabled>NFT Marketplace</button>
   </div>
 </div>

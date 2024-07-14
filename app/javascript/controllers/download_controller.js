@@ -15,6 +15,7 @@ export default class extends Controller {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    this.disable_btn();
   }
 
   file_name(){
@@ -28,5 +29,12 @@ export default class extends Controller {
       ("0" + now.getSeconds().toString()).slice(-2) +
       ".schematic"
     );
+  }
+  disable_btn(){
+    const downloadButton = document.getElementById('d_model');
+    if (downloadButton) {
+        downloadButton.disabled = true; // 禁用按钮
+        downloadButton.style.opacity = '0.5'; // 可以选择性地改变按钮的透明度
+    }
   }
 }
