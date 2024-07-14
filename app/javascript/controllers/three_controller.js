@@ -12,10 +12,7 @@ export default class extends Controller {
   loader;
 
   connect() {
-    console.log("---- three ----")
     const paramValue = this.data.get('orderid')
-    console.log(paramValue);
-    console.log("===");
     const parentDiv = document.getElementById("three");
     const model_bg = document.getElementById("model_bg");
 
@@ -39,7 +36,6 @@ export default class extends Controller {
     this.renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
     // this.renderer.setSize(700, 500);
     
-
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true; // 鼠标平滑控制旋转
     this.controls.update();
@@ -58,7 +54,6 @@ export default class extends Controller {
         this.renderer.setSize(width, height);
     });
     // .........设置父级 div 的尺寸..........
-
     this.animate();
     
     const mmodel = document.getElementById("mmodel")
@@ -76,7 +71,6 @@ export default class extends Controller {
     }
 
     this.loader.load(imagePath, (gltf) => {
-      console.log('... loader ...');
       this.scene.add(gltf.scene);
       // parentDiv.removeChild(loadingText);
       loadingText.classList.add("d-none");
@@ -85,7 +79,6 @@ export default class extends Controller {
       // 加载出错时也移除加载动画
       // parentDiv.removeChild(loadingText);
       loadingText.classList.add("d-none");
-
 
     });
 
