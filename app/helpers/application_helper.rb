@@ -15,6 +15,15 @@ module ApplicationHelper
     end
   end
 
+  def order_percentage_progress(status)
+    p status, '..............................'
+    value = status == "pending" ? 33.33 : 66.66
+    # value = [33.33, 66.66][status.to_i]
+    content_tag(:div, class: "progress border-0", role: "progressbar", aria: {label: "example", valuenow: value, valuemin: "0", valuemax: "100"}) do
+      content_tag(:div, nil, class: "progress-bar border-1", style: "width: #{value}%;background-image: var(--main-bg-gradient) !important;")
+    end
+  end
+
   def is_image_content_type?(content_type)
     content_type =~ %r{^(image/(?:jpeg|pjpeg|png|gif|tiff|bmp|heif|webp|avif|svg\+xml))$}
   end  

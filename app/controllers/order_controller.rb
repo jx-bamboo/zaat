@@ -7,6 +7,8 @@ class OrderController < ApplicationController
   def new
     @order = Order.new
     @my_order_pendding = current_user.orders.my_order_pendding
+    @not_success = current_user.orders.not_success
+    p @not_success, '....................'
   end
   
   def create
