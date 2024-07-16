@@ -1,4 +1,5 @@
 class DraftsController < ApplicationController
+  before_action :custom_authenticate_user!
   before_action :set_draft, only: %i[ show edit update destroy ]
 
   # GET /drafts or /drafts.json

@@ -1,5 +1,7 @@
-<% flash.each do |flash_type, message| %>
-  <div class="flash__message padding1 rounded-pill" data-controller="removals" data-action="animationend->removals#remove">
-    <div class="text-center bg-dark p-3 rounded-pill"><%= message %></div>
-  </div>
-<% end %>
+<div class="flash">
+  <% flash.each do |flash_type, message| %>
+    <div class="flash__message padding1 rounded-pill" data-controller="removals" data-action="animationend->removals#remove">
+      <div class="text-center bg-dark p-3 rounded-pill"><%= message %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  before_action :custom_authenticate_user!
   def index
     @total_token = current_user.token&.balance
   end

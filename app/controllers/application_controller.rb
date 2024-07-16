@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
     end
     user.token_changes.create(amount: num, event:, token_id: token.id)
   end
+
+  def custom_authenticate_user!
+    unless user_signed_in?
+      flash[:notice] = "You need to sign in or sign up before continuing."
+      redirect_to root_path
+    end
+  end
+
 end

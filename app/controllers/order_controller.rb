@@ -1,4 +1,5 @@
 class OrderController < ApplicationController
+  before_action :custom_authenticate_user!
   def show
     @order = Order.find(params[:id])
     render turbo_stream: turbo_stream.replace("model_show", partial: "order/show", locals: {order: @order})
