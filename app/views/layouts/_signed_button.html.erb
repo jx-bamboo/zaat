@@ -48,7 +48,11 @@
   <script>
     var backdrop = document.querySelector('.modal-backdrop');
     if (backdrop) {  
-        backdrop.parentNode.removeChild(backdrop);  
+        backdrop.parentNode.removeChild(backdrop);
+        const bd = document.body;
+        bd.style.overflow = "";
+        bd.style.paddingRight = "";
+        bd.classList.remove("modal-open");
     }
   </script>
 <% end %>
