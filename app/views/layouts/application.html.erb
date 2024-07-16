@@ -5,28 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%
-=begin%>
- <link rel="SHORTCUT ICON" href="favicon.png"> 
-<%
-=end%>
     <%= favicon_link_tag 'favicon.png' %>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@2.2.0/build/global/luxon.min.js"></script>
-
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.5.2/ethers.umd.min.js"
-        integrity="sha512-PtOcu3WZTldHT+VjAJdWV5ss+iGebEgc1h5olJuxUNPvKuC0VOZsk1UhNgQYi5oIyrNHhdIOw8WQMdZwBv1MyQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-        ></script>
-    <script src="/metamask.js"></script> -->
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.8.2/dist/es-module-shims.js" data-turbo-track="reload"></script>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="home">
+      <%= render "layouts/header" %>
+      <div class="container text-light">
+        <%= yield %>
+      </div> 
+    </div>
   </body>
 </html>

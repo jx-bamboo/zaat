@@ -1,30 +1,23 @@
-<div class="home">
-  <%= render "layouts/header" %>
-  <div class="container text-center pb-5">
+<div class="row mt-sm-2 mt-md-3 mt-lg-4 mt-xl-5">
+  <div class="col-sm-12 text-center">
+    <%= image_tag "home_zaat.svg", class: "img-fluid" %>
+  </div>
+</div>
 
-    <div class="row mt-sm-2 mt-md-3 mt-lg-4 mt-xl-5">
-      <div class="col-sm-12">
-        <%= image_tag "home_zaat.svg", class: "img-fluid" %>
+<div class="row py-4 mt-sm-2 mt-md-3 mt-lg-4 mt-xl-5">
+  <div class="col-sm-6 p-2 nav navbar">
+    <div class="mx-auto">
+      <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">Building multimodal AI to expand </div>
+      <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">imagination and capabilities</div>
+      <div class="h-fs pb-2 text-start">integrated with Web3</div>
+      <div class="nav-navbar text-center text-sm-start py-4 py-sm-0 py-md-4">
+        <a href="#"><%= image_tag "twitter.svg" %></a>
+        <a class="ps-3" href="#"><%= image_tag "discord.svg" %></a>
+        <a class="ps-3" href="#"><%= image_tag "github.svg" %></a>
+        <a class="ps-3" href="#"><%= image_tag "m.svg" %></a>
+        <a class="ps-3" href="#"><%= image_tag "telegram.svg" %></a>
       </div>
     </div>
-
-    <div class="row text-light py-4 mt-sm-2 mt-md-3 mt-lg-4 mt-xl-5">
-      <div class="col-sm-6 p-2 nav navbar">
-        <div class="mx-auto">
-          <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">Building multimodal AI to expand </div>
-          <div class="h-fs pb-2 pb-sm-0 pb-md-2 text-start">imagination and capabilities</div>
-          <div class="h-fs pb-2 text-start">integrated with Web3</div>
-          <div class="nav-navbar text-center text-sm-start py-4 py-sm-0 py-md-4">
-            <a href="#"><%= image_tag "twitter.svg" %></a>
-            <a class="ps-3" href="#"><%= image_tag "discord.svg" %></a>
-            <a class="ps-3" href="#"><%= image_tag "github.svg" %></a>
-            <a class="ps-3" href="#"><%= image_tag "m.svg" %></a>
-            <a class="ps-3" href="#"><%= image_tag "telegram.svg" %></a>
-          </div>
-        </div>
-      </div>
-      <%= render "home/two_btn" %>
-    </div>
-    
-  </div> 
+  </div>
+  <%= render "home/two_btn" %>
 </div>

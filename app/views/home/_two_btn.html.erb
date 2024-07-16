@@ -1,6 +1,6 @@
-<%= turbo_frame_tag "two_btn", class: "col-sm-6 row row-cols-2 mx-0" do %>
+<%= turbo_frame_tag "two_btn", class: "col-sm-6 row row-cols-2 mx-0 text-center" do %>
   <% if user_signed_in? %>
-    <div>
+    <div class="">
       <a href="/order/new" class="d-block position-relative" data-turbo-prefetch="false" data-turbo="false">
         <%= render "home/btn_create" %>
       </a>

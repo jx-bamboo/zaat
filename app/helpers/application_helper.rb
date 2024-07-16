@@ -34,9 +34,6 @@ module ApplicationHelper
   end
 
   def is_verified_email(current_user)
-    p current_user, '...............'
-    p current_user.email, '|'
-    p current_user.confirmed_at,'....'
     email = current_user.email
 
     if email.present? && email.end_with?("@address.zaat") && current_user.confirmed_at.present?
