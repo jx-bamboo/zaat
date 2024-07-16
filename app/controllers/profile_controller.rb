@@ -6,7 +6,8 @@ class ProfileController < ApplicationController
 
   def my_model
     p '... my model ...'
-    @order = Order.order(created_at: :desc)
+    # @order = Order.order(created_at: :desc)
+    @pagy, @order = pagy(Order.order(created_at: :desc), items: 20, anchor_string: 'data-remote="false"')
   end
 
   def verify_invite_code

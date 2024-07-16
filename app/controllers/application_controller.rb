@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   def add_token(num, event, user_id)
     user = User.find_by(id: user_id)
     if user.token

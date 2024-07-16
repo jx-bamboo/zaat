@@ -3,7 +3,7 @@
     <div class="profile_border p-2 p-sm-4 rounded mb-5">
       <!-- <div class="h4 mb-3">My 3D Models</div> -->
       <nav class="mb-4 d-flex">
-        <%= link_to "All", "/profile/my_model", class: "text-decoration-none text-secondary h5" %>
+        <%= link_to "All", "/profile/my_model", data: {"turbo-prefetch": false}, class: "text-decoration-none text-secondary h5" %>
         <%= link_to "Minted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
         <%= link_to "Unminted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
         <%= link_to "Earn", "#", class: "text-decoration-none text-light h5 ms-4" %>

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pagy::Frontend
   def simple_address(addr)
     return false unless addr.present?
     return addr[0, 4] + "..." + addr[-4..-1]

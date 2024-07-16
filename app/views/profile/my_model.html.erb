@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-sm-12">
-    <div class="profile_border p-2 p-sm-4 rounded mb-5">
+    <div class="profile_border p-2 p-sm-4 rounded">
       <!-- <div class="h4 mb-3">My 3D Models</div> -->
-      <nav class="mb-4">
+      <nav>
         <%= link_to "All", "#", class: "text-decoration-none text-light h5" %>
         <%= link_to "Minted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
         <%= link_to "Unminted", "#", class: "text-decoration-none text-secondary h5 ms-4" %>
-        <%= link_to "Earn", drafts_path, class: "text-decoration-none text-secondary h5 ms-4" %>
+        <%= link_to "Earn", drafts_path, data: {"turbo-prefetch": false}, class: "text-decoration-none text-secondary h5 ms-4" %>
       </nav>
+      <p></p>
       <div class="row row-cols-auto row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
         <!-- Modal show start -->
         <div class="modal fade blur-div-background" data-bs-backdrop="static" data-bs-keyboard="false" id="modelShow" tabindex="-1" aria-labelledby="modelShowLabel" aria-hidden="true">
@@ -55,11 +56,10 @@
         <% end %>
       </div>
 
-      <div class="mt-2 py-4 text-center">
-        <%#= link_to "#", class: "text-light profile_btn_more py-2 px-3 fw-bold text-decoration-none" do %>
-          <!-- More &nbsp;<%#= image_tag "to_right.svg" %> -->
-        <%# end %>
+      <div class="pt-3 d-flex justify-content-center">
+        <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
       </div>
+      
     </div>
   </div>
 </div>
