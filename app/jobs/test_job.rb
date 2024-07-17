@@ -1,9 +1,8 @@
 class TestJob < ApplicationJob
   queue_as :default
 
-  API_Key = "tsk_ar0lW2-VK1Njosnh0dnYpbfb3NlvudczL8elxuh8DZE"
+  API_Key = Rails.application.credentials.dig(:gpt_api_key)
   URI = "http://120.224.26.32:11483"
-  # URI = "http://120.224.26.32:52319"
 
   def perform(id)
     logger.info '... into test job ...'

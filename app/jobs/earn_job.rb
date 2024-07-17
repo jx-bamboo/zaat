@@ -25,8 +25,7 @@ class EarnJob < ApplicationJob
   private
 
   def call_bsc_api(txhash)
-    # bsc_key = "1M5JQRT1W4B4DYBBKTPYD1WMMHGIU9T8G9"
-    bsc_key = "YourApiKeyToken"
+    bsc_key = "YourApiKeyToken" || Rails.application.credentials.dig(:bsc_key)
     uri = "https://api-testnet.bscscan.com/api?module=transaction&action=gettxreceiptstatus&txhash=#{txhash}&apikey=#{bsc_key}"
 
     response = Faraday.get(uri)
