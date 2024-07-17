@@ -16,7 +16,7 @@
 # Pagy::DEFAULT[:page_param]  = :page                 # default
 # Pagy::DEFAULT[:count_args]  = []                    # example for non AR ORMs
 # Pagy::DEFAULT[:max_pages]   = 3000                  # example
-require 'pagy/extras/bootstrap'
+# require 'pagy/extras/bootstrap'
 
 # Extras
 # See https://ddnexus.github.io/pagy/categories/extra

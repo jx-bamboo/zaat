@@ -35,20 +35,19 @@
                     <% if order.status == "completed" %>
                       <img src="/order/order_<%= order.id %>/img_180.png" class="img-fluid" alt="ZAAT" title="ZAAT">
                     <% else %>
-                      <div class="text-center text-light py-5 text-truncate">
+                      <div class="text-light py-5 text-truncate">
                         <%= order.prompt %>
                       </div>
                     <% end %>
                   <% end %>
                 </div>
               <% end %>
-              <div class="p-2">
+              <!-- <div class="p-2">
                 <span class="card-text"><%= bootstrap_icon "three-dots", width: 24 %> &nbsp; <%= bootstrap_icon "link", width: 24 %></span>
-              </div>
-              <% if order.status == "pending" %>
+              </div> -->
+              <% unless order.status == "completed" %>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg_gradient">
-                  pending
-                  <span class="visually-hidden"></span>
+                  <%= order.status %>
                 </span>
               <% end %>
             </div>
@@ -57,9 +56,8 @@
       </div>
 
       <div class="pt-3 d-flex justify-content-center">
-        <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
       </div>
-      
     </div>
   </div>
 </div>

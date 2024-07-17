@@ -5,8 +5,6 @@ class ProfileController < ApplicationController
   end
 
   def my_model
-    p '... my model ...'
-    # @order = Order.order(created_at: :desc)
     @pagy, @order = pagy(Order.order(created_at: :desc), items: 20, anchor_string: 'data-remote="false"')
   end
 
@@ -43,16 +41,13 @@ class ProfileController < ApplicationController
         flash[:notice] = "Invitation code is invalid"
       end
     end
-    p 'lllllllllllllllll'
   end
 
   def verify_email
     if request.post?
       email = params[:email]
-      p email, '---'
       user = User.find_by(email:)
       if user
-        p user, '---'
         flash[:notice] = "Email is invalid."
       else
         current_user.update(email:, confirmed_at: nil)

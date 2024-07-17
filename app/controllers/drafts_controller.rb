@@ -4,7 +4,7 @@ class DraftsController < ApplicationController
 
   # GET /drafts or /drafts.json
   def index
-    @drafts = Draft.all
+    @pagy, @drafts = pagy(Draft.order(created_at: :desc), items: 20, anchor_string: 'data-remote="false"')
   end
 
   # GET /drafts/1 or /drafts/1.json
@@ -22,14 +22,11 @@ class DraftsController < ApplicationController
 
   # POST /drafts or /drafts.json
   def create
-    p params, "..."
     @draft = Draft.new(draft_params)
 
     respond_to do |format|
       if @draft.save
         EarnJob.perform_later(@draft.id, @draft.txhash, @draft.status)
-
-        # add_token(1000, "upload to earn", current_user.id)
         format.html { redirect_to draft_url(@draft), notice: "Draft was successfully created." }
         format.json { render :show, status: :created, location: @draft }
       else
