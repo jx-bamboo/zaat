@@ -1,10 +1,6 @@
-Trestle.resource(:orders) do
+Trestle.resource(:drafts) do
   menu do
-    item "订单管理", icon: "fa fa-star"
-  end
-
-  active_storage_fields do
-    [:image]
+    item "文件管理", icon: "fa fa-file"
   end
 
   # Customize the table columns shown on the index view.
@@ -12,21 +8,23 @@ Trestle.resource(:orders) do
   table do
     column :id
     column :txhash
-    column :prompt
-    column :file_name, header: "Image"
+    column :model_file_count
     column :status
+    column :user
+    
     column :created_at, align: :center
     actions
   end
 
   # Customize the form fields shown on the new/edit views.
   #
-  form do |order|
+  form do |draft|
     tab :content do
       text_field :id
       text_field :txhash
-      text_field :prompt
-
+      text_field :user, value: draft.user.email
+      # file_field :model_file, multiple: true
+      
       row do
         col { datetime_field :updated_at }
         col { datetime_field :created_at }
@@ -40,15 +38,12 @@ Trestle.resource(:orders) do
       
     end
 
-    tab :image do
-      if order.image.attached?
-        order.image.blob.filename
-        content_tag :img, nil, src: "data:image/jpeg;base64,#{Base64.encode64(order.image.download)}"
-      else
-        content_tag :div, "暂无图片", class: "text-center"
+    tab :model_file do
+      draft.model_file.each do |file|
+        col {file.filename}
       end
     end
-
+    
   end
 
   # By default, all parameters passed to the update and create actions will be
@@ -59,6 +54,6 @@ Trestle.resource(:orders) do
   #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
   #
   # params do |params|
-  #   params.require(:order).permit(:name, ...)
+  #   params.require(:draft).permit(:name, ...)
   # end
 end

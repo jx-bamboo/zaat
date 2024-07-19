@@ -8,4 +8,8 @@ class Order < ApplicationRecord
 
   scope :not_success, -> { where.not(status: 2).order(created_at: :desc)}
 
+  def file_name
+    image.filename
+  end
+
 end

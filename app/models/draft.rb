@@ -7,4 +7,8 @@ class Draft < ApplicationRecord
   validates :model_file, presence: true
   # validates :model_file, attachment_content_type: { content_type: /image/ }
   enum status: [:pending, :creating, :completed]
+
+  def model_file_count
+    model_file.size
+  end
 end
