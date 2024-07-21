@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-          <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.</div>
+          <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.Support x.obg, x.glb files.</div>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
 
     // 如果选择的文件数量超过最大限制，则弹出警告并停止后续处理
     if (files.length > maxFiles) {
-      alert('您最多只能选择' + maxFiles + '个文件。');
+      alert('You can only select a maximum of' + maxFiles + 'files.');
       // 这里我们无法直接清除文件输入的值，因为它可能不受支持
       // 可以通过设置input的value为''尝试（但这在某些浏览器中不起作用）
       // e.target.value = ''; // 这可能不起作用
@@ -83,7 +83,23 @@
     fileInput.value = '';
     
     // 同时清除预览区域
-    var fileNamesDiv = document.getElementById('preview');
+    let fileNamesDiv = document.getElementById('preview');
     fileNamesDiv.innerHTML = '';
+
+    // 创建新的div元素
+    let errorDiv = document.createElement('div');
+    errorDiv.className = 'text-center text-light';
+    errorDiv.id = 'error';
+
+    // 创建img元素
+    let img = document.createElement('img');
+    img.src = '<%= asset_path("add.svg") %>';
+    img.classList.add('rounded', 'shadow');
+
+    // 将img元素添加到div中
+    errorDiv.appendChild(img);
+
+    // 将新创建的div添加到preview元素下
+    fileNamesDiv.appendChild(errorDiv);
 });
 </script>
