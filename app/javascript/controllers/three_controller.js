@@ -14,11 +14,12 @@ export default class extends Controller {
   connect() {
     const paramValue = this.data.get('orderid')
     const parentDiv = document.getElementById("three");
-    const model_bg = document.getElementById("model_bg");
+
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color('#263238');
+    // this.scene.background = new THREE.Color('#263238');
     // this.scene.background = new THREE.Color('#f0f2f5');
+    this.scene.background = new THREE.Color('#212529');
 
     //创建一个平行光
     const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
@@ -29,12 +30,13 @@ export default class extends Controller {
     const ambientLight = new THREE.AmbientLight(0xffffff); // 设置光照颜色
     ambientLight.intensity = 2; // 增加环境光的强度
     this.scene.add(ambientLight);
-    this.scene.position.setY(-1);
+    // this.scene.position.setY(-1);
     
-    this.camera = new THREE.PerspectiveCamera(75, 700 / 500, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
-    // this.renderer.setSize(700, 500);
+    // renderer.setSize(container.clientWidth, container.clientHeight);
+    // parentDiv.appendChild(renderer.domElement);
     
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true; // 鼠标平滑控制旋转
@@ -45,10 +47,8 @@ export default class extends Controller {
 
     // ..........设置父级 div 的尺寸.........
     window.addEventListener('resize', () => {
-        // 更新相机和渲染器的大小
         const width = parentDiv.clientWidth;
         const height = parentDiv.clientHeight;
-        
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);
