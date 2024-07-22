@@ -2,7 +2,7 @@ class ThreeJob < ApplicationJob
   queue_as :three_model
 
   API_Key = Rails.application.credentials.dig(:gpt_api_key)
-  URI = "http://120.224.26.32:42201"
+  URI = "http://120.224.26.32:13989"
 
   def perform(id)
     logger.info '... into three job ...'
